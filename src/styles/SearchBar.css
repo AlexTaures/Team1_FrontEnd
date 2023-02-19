@@ -1,0 +1,12 @@
+.search_bar{
+  display: flex;
+}
+
+.search_bar > *{
+  padding: 0px 10px;
+}
+
+.user_address{
+  width: 100px;
+}
+
