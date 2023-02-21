@@ -27,6 +27,8 @@
 
 .search_input > button >i{
   width: 30px;
+  color: gray;
+  font-size: 1em;
 }
 
 .search_input > button >i:hover{

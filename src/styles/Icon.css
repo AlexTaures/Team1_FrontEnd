@@ -1,0 +1,30 @@
+i{
+  color: white;
+  font-size: 1.4em;
+}
+
+i:hover{
+  color: green;
+}
+
+a{
+  margin-left: 5px;
+  text-decoration: none;
+  font-size: 1em;
+  color: white;
+}
+
+.cart_container{
+  position: relative;
+}
+
+.cart_index{
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  background: red;
+  font-size: 0.5em;
+  width: 10px;
+  height: 10  px;
+}
