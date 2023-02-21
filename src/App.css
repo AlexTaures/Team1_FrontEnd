@@ -7,8 +7,17 @@
   display: flex;
   text-align: center;
   justify-content: center;
+  align-items: center;
+  background: rgb(27,228,189);
+  background: linear-gradient(90deg, rgba(27,228,189,1) 0%, rgba(182,208,199,0.9976365546218487) 44%, rgba(76,135,120,1) 100%);
+  box-shadow: 5px 0px 5px 5px gray;
 }
 
 .navlink, .navbar_address{
   margin:5px 15px;
+}
+
+.navlink > i{
+  color: white;
+  font-size: 1.34em;
 }
