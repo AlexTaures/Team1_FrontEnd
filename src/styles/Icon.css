@@ -7,9 +7,8 @@ i:hover{
   color: green;
 }
 
-a{
+.user_nav_text{
   margin-left: 5px;
-  text-decoration: none;
   font-size: 1em;
   color: white;
 }
@@ -27,4 +26,8 @@ a{
   font-size: 0.5em;
   width: 10px;
   height: 10  px;
+}
+
+.login_icon{
+  display: flex;
 }

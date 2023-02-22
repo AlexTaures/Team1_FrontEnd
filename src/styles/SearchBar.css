@@ -39,6 +39,10 @@
 
 }
 
+.search_input input{
+  width: 200px;
+}
+
 .user_address{
   width: 200px;
   color: white;

@@ -23,3 +23,8 @@
   color: white;
   font-size: 1.34em;
 }
+
+.Navbar > *{
+  text-decoration: none;
+}
+

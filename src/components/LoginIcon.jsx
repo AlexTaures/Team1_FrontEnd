@@ -7,9 +7,9 @@ export default function () {
 
 
   return (
-    <div>
-      <i class="fa-solid fa-user"></i>
-      <a>{userName}</a>
+    <div className='login_icon'>
+      <i className="fa-solid fa-user"></i>
+      <p className='user_nav_text'>{userName}</p>
     </div>
   )
 }

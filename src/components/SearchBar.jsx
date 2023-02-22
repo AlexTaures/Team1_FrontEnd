@@ -21,7 +21,7 @@ const search = (event) => {
         <div className="search_input">
           <select name='selectCategory'>
           {
-            categories.map(opt=><option>{opt}</option>)
+            categories.map((opt, index)=><option key={index}>{opt}</option>)
           }
           </select>
           <input type='text' placeholder='Tap something to search' />

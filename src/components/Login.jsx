@@ -1,9 +1,48 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { DataContext } from '../context/DataContext';
 import '../styles/Login.css';
+import axios from 'axios';
+
+import routes from '../connection/BackendRoutes.json';
 
 export default function Login() {
   const { login, setLogin } = useContext(DataContext);
+  const refUserName = useRef(null);
+  const refEmail = useRef(null);
+  const refPass = useRef(null);
+  const refConfPass = useRef(null);
+
+  //for singup
+  const createPost = async () => {
+    try {
+      const url = routes['customers'];
+      const body = {
+        first_name: "-",
+        last_name: "-",
+        email: refEmail.current.value,
+        address: "-",
+        user_name: refUserName.current.value,
+        password: refPass.current.value
+      }
+      const response = await axios.post(url, body);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const SingIn = (event) => {
+    event.preventDefault();
+    alert('funcionando');
+    console.log(routes['customers']);
+  }
+
+  const SingUp = (event) => {
+    event.preventDefault();
+    //alert(refUserName.current.value);
+    createPost();
+    
+  }
 
   const logMode = (event) => {
     event.preventDefault();
@@ -19,35 +58,34 @@ export default function Login() {
     return(
       <div className='log_container'>
         <div className="container">
-        <div className="form" id="singup">
-      <h2>Sing Up</h2>
-        <div className="inputBox">
-          <input type="text" required="required" defaultValue=''></input>
-          <i className="fa-regular fa-user"></i>
-          <span>username</span>
-        </div>
-        <div className="inputBox">
-          <input type="text" required="required" defaultValue=''></input>
-          <i className="fa-regular fa-envelope"></i>
-          <span>email adress</span>
-        </div>
-        <div className="inputBox">
-          <input type="password" required="required" defaultValue=''></input>
-          <i className="fa-solid fa-lock"></i>
-          <span>create password</span>
-        </div>
-  
-        <div className="inputBox">
-          <input type="password" required="required" defaultValue=''></input>
-          <i className="fa-solid fa-lock"></i>
-          <span>confirm password</span>
-        </div>
-        <div className="inputBox">
-          <input type="submit" value="Create Account"></input>
-          <p className='last_text'>Already a member ? <button onClick={logMode} class="login">Log in</button></p>
-        </div>
-
-        </div>
+            <div className="form" id="singup">
+                    <h2>Sing Up</h2>
+                    <div className="inputBox">
+                      <input type="text" required="required" defaultValue='' ref={refUserName}></input>
+                      <i className="fa-regular fa-user"></i>
+                      <span>username</span>
+                    </div>
+                    <div className="inputBox">
+                      <input type="text" required="required" defaultValue='' ref={refEmail}></input>
+                      <i className="fa-regular fa-envelope"></i>
+                      <span>email adress</span>
+                    </div>
+                    <div className="inputBox">
+                      <input type="password" required="required" defaultValue='' ref={refPass}></input>
+                      <i className="fa-solid fa-lock"></i>
+                      <span>create password</span>
+                    </div>
+              
+                    <div className="inputBox">
+                      <input type="password" required="required" defaultValue='' ref={refConfPass}></input>
+                      <i className="fa-solid fa-lock"></i>
+                      <span>confirm password</span>
+                    </div>
+                    <div className="inputBox">
+                      <input type="submit" value="Create Account" onClick={SingUp}></input>
+                      <p className='last_text'>Already a member ? <button onClick={logMode} className="login">Log in</button></p>
+                    </div>
+            </div>
         </div>
       </div>
     )
@@ -68,8 +106,8 @@ export default function Login() {
           <span>password</span>
         </div>
         <div className="inputBox">
-          <input type="submit" value="Login"></input>
-          <p className='last_text'>Not Registered ? <button onClick={logMode} class="create">Create an account</button></p>
+          <input type="submit" value="Login" onClick={SingIn}></input>
+          <p className='last_text'>Not Registered ? <button onClick={logMode} className="create">Create an account</button></p>
         </div>
 
           </div>
@@ -98,9 +136,9 @@ export default function Login() {
                 <span>Address</span>
               </div>
         
-        <div class="inputBox">
+        <div className="inputBox">
           <input type="submit" value="Save"></input>
-          <p className='last_text'>Change password? <button onClick={logMode} class="create">Clik here</button></p>
+          <p className='last_text'>Change password? <button onClick={logMode} className="create">Clik here</button></p>
         </div>
 
           </div>

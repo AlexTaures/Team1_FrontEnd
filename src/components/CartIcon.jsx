@@ -6,8 +6,8 @@ export default function () {
   const {cart} = useContext(DataContext);
   return (
     <div className='cart_container'>
-      <i class="fa-solid fa-cart-shopping"></i>
-      <a className='cart_index'>{cart}</a>
+      <i className="fa-solid fa-cart-shopping"></i>
+      <p className='cart_index'>{cart}</p>
     </div>
   )
 }
