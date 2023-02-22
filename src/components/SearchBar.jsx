@@ -17,7 +17,7 @@ const search = (event) => {
   return (
     <form onSubmit={search} className='search_bar'>
         <div className='user_address'>
-        <i class="fa-solid fa-location-dot"></i> {userAddress}</div>
+        <i className="fa-solid fa-location-dot"></i> {userAddress}</div>
         <div className="search_input">
           <select name='selectCategory'>
           {
@@ -25,7 +25,7 @@ const search = (event) => {
           }
           </select>
           <input type='text' placeholder='Tap something to search' />
-          <button type='submit'><i class="fa-solid fa-magnifying-glass"></i></button>
+          <button type='submit'><i className="fa-solid fa-magnifying-glass"></i></button>
         </div>
         
       </form>

@@ -121,12 +121,14 @@
   font-weight: 300;
 }
 
-.container .form p a{
+.container .form p button{
   font-weight: 500;
   color: #828282;
+  border-style: none;
+  background: none;
 }
 
-.inputBox p a:hover{
+.inputBox p button:hover{
   cursor: pointer;
 }
 
