@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { DataContext } from '../context/DataContext';
 import '../styles/Login.css';
 import axios from 'axios';
@@ -11,9 +11,11 @@ export default function Login() {
   const refEmail = useRef(null);
   const refPass = useRef(null);
   const refConfPass = useRef(null);
+  let [message, setMessage] = useState('');
+
 
   //for singup
-  const createPost = async () => {
+  const CreateAccount = async () => {
     try {
       const url = routes['customers'];
       const body = {
@@ -26,6 +28,8 @@ export default function Login() {
       }
       const response = await axios.post(url, body);
       console.log(response);
+      alert('Account Created');
+      setLogin(0);
     } catch (error) {
       console.log(error);
     }
@@ -37,11 +41,16 @@ export default function Login() {
     console.log(routes['customers']);
   }
 
+ 
+
   const SingUp = (event) => {
     event.preventDefault();
-    //alert(refUserName.current.value);
-    createPost();
-    
+    if(refConfPass.current.value != refPass.current.value){
+      setMessage("The confirmation password doesn't match");
+      console.log(message);
+    }else{
+      CreateAccount();
+    }   
   }
 
   const logMode = (event) => {
@@ -84,6 +93,7 @@ export default function Login() {
                     <div className="inputBox">
                       <input type="submit" value="Create Account" onClick={SingUp}></input>
                       <p className='last_text'>Already a member ? <button onClick={logMode} className="login">Log in</button></p>
+                      <h5 className="error_text">{message}</h5>
                     </div>
             </div>
         </div>

@@ -148,3 +148,7 @@
   outline: none;
 }
 
+.error_text{
+  color: rgb(114, 9, 9);
+}
+
