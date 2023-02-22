@@ -1,6 +1,7 @@
 .search_bar{
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .search_input{
