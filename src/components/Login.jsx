@@ -78,7 +78,34 @@ export default function Login() {
     )
   }else{
     return(
-      <div>Log info</div>
+      <div className='log_container'>
+        <div className="container">
+          <div class="form" id="singin">
+        <h2>User Information</h2>
+              <div class="inputBox">
+                <input type="text" required="required"></input>
+                <i class="fa-solid fa-user"></i>
+                <span>First Name</span>
+              </div>
+              <div class="inputBox">
+                <input type="text" required="required"></input>
+                <i class="fa-solid fa-user"></i>
+                <span>Last Name</span>
+              </div>
+              <div class="inputBox">
+                <input type="text" required="required"></input>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Address</span>
+              </div>
+        
+        <div class="inputBox">
+          <input type="submit" value="Save"></input>
+          <p className='last_text'>Change password? <a onClick={logMode} class="create">Clik here</a></p>
+        </div>
+
+          </div>
+        </div>
+      </div>
     )
   }
 

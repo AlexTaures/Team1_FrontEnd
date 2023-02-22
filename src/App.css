@@ -5,7 +5,7 @@
 
 .Navbar{
   display: flex;
-  position: absolute;
+  position: relative;
   width: 100%;
   text-align: center;
   justify-content: center;
