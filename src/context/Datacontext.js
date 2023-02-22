@@ -11,11 +11,11 @@ export const DataProvider =  ( {children} ) => {
     //test information
     let categoriesList = ["Floor", "Garden", "Toilet"];
     let addressTest = "Generic User Address";
-    let loginTest = 'Login';
     //-----
     const [categories, setCategories] = useState(categoriesList);
     const [userAddress, setUserAddress] = useState(addressTest);
-    const [login, setLogin] = useState(loginTest);
+    const [login, setLogin] = useState(0);
+    const [userName, setUserName] = useState('Log in');
     const [cart, setCart] = useState(0);
     
 
@@ -26,7 +26,8 @@ export const DataProvider =  ( {children} ) => {
             categories, setCategories,
             userAddress, setUserAddress,
             login, setLogin,
-            cart, setCart
+            cart, setCart,
+            userName, setUserName
         }} >
             { children }
         </DataContext.Provider>
