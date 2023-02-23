@@ -19,7 +19,7 @@ function App() {
         <NavLink to='/account' className='navlink'><LoginIcon/></NavLink>
         <NavLink to='/shopping' className='navlink'><CartIcon/></NavLink>
 
-        <NavLink to='/admin' className='navlink'>Admin</NavLink>
+        <NavLink to='/admin' className='navlink'><i class="fa-solid fa-laptop-code"></i><span> Admin</span></NavLink>
 
         
       </div>
@@ -34,10 +34,6 @@ function App() {
           }/>
           <Route exact path="/admin" element={
               <DashboardAdmin/>    
-          }/>
-
-          <Route exact path="/admin" element={
-              <div>Admin component</div>    
           }/>
 
           <Route exact path="/" element={

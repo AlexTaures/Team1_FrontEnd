@@ -17,6 +17,7 @@
 
 .navlink, .navbar_address{
   margin:5px 15px;
+  align-items: center;
 }
 
 .navlink > i{
@@ -27,4 +28,22 @@
 .Navbar > *{
   text-decoration: none;
 }
+
+.navlink span{
+  color: white;
+}
+
+.navlink{
+  border: solid 1px rgba(255, 255, 255, 0);
+  padding: 7px;
+  border-radius: 15px;
+}
+.navlink:hover{
+  text-decoration: none;
+  color: green;
+  border: solid 1px white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
 
