@@ -1,11 +1,12 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes, NavLink} from 'react-router-dom'
 import SearchBar from './components/SearchBar';
-import { DataProvider } from './context/DataContext';
+import { DataProvider } from './context/Datacontext';
 import logo from "./img/amazont.png";
 import LoginIcon from './components/LoginIcon';
 import CartIcon from "./components/CartIcon";
 import Login from './components/Login';
+import DashboardAdmin from './components/DashboardAdmin';
 
 function App() {
   
@@ -17,7 +18,9 @@ function App() {
         <SearchBar/>
         <NavLink to='/account' className='navlink'><LoginIcon/></NavLink>
         <NavLink to='/shopping' className='navlink'><CartIcon/></NavLink>
+
         <NavLink to='/admin' className='navlink'>Admin</NavLink>
+
         
       </div>
 
@@ -28,6 +31,9 @@ function App() {
 
           <Route exact path="/shopping" element={
               <div>Shopping cart component</div>    
+          }/>
+          <Route exact path="/admin" element={
+              <DashboardAdmin/>    
           }/>
 
           <Route exact path="/admin" element={

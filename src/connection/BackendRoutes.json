@@ -3,5 +3,6 @@
   "sales": "http://localhost:8000/api/sales",
   "brands": "http://localhost:8000/api/brands",
   "presentations": "http://localhost:8000/api/presentations",
-  "products": "http://localhost:8000/api/products"
+  "products": "http://localhost:8000/api/products",
+  "admins" : "http://localhost:8000/api/admins"
 }
