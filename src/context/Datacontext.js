@@ -18,6 +18,7 @@ export const DataProvider =  ( {children} ) => {
     const [userName, setUserName] = useState('Log in');
     const [cart, setCart] = useState(0);
     const [userInfo, setUserInfo] = useState({});
+    const [dashOption, setDashOption] = useState(1);
     
 
 
@@ -29,7 +30,8 @@ export const DataProvider =  ( {children} ) => {
             login, setLogin,
             cart, setCart,
             userName, setUserName,
-            userInfo, setUserInfo
+            userInfo, setUserInfo,
+            dashOption, setDashOption
         }} >
             { children }
         </DataContext.Provider>

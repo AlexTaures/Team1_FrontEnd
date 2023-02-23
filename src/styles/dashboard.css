@@ -17,3 +17,15 @@
    align-items: center;
     flex-direction: column;
 }
+
+.nav-item:hover{
+    cursor: pointer;
+}
+
+button{
+    background: none;
+    border: none;
+}
+
+/****************DASHBOARD TABLES STYLES***********************************/
+
