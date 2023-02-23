@@ -38,8 +38,8 @@ export default function DashboardAdmin() {
                     <li className="nav-item">
                         <a className="nav-link collapsed" href="#" data-target="#collapseTwo"
                             aria-expanded="true" aria-controls="collapseTwo">
-                            <i class="fa-solid fa-user"></i>
-                            <span>View users</span>
+                            <i class="fa-sharp fa-solid fa-user-plus"></i>
+                            <span>Add Users</span>
                         </a>
                     </li>
 
@@ -64,30 +64,23 @@ export default function DashboardAdmin() {
 
 
                     <div className="sidebar-heading">
-                        Addons
+                        Views
                     </div>
 
 
                     <li className="nav-item">
-                        <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                        <a className="nav-link collapsed" href="#" data-target="#collapsePages"
                             aria-expanded="true" aria-controls="collapsePages">
                             <i className="fas fa-fw fa-folder"></i>
-                            <span>Pages</span>
+                            <span>View Sales</span>
                         </a>
                     </li>
 
 
                     <li className="nav-item">
                         <a className="nav-link" href="charts.html">
-                            <i className="fas fa-fw fa-chart-area"></i>
-                            <span>Charts</span></a>
-                    </li>
-
-
-                    <li className="nav-item">
-                        <a className="nav-link" href="tables.html">
-                            <i className="fas fa-fw fa-table"></i>
-                            <span>Tables</span></a>
+                        <i class="fa-solid fa-user"></i>
+                            <span>View Users</span></a>
                     </li>
 
 
