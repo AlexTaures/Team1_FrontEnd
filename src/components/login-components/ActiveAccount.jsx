@@ -5,11 +5,17 @@ import axios from 'axios';
 import routes from '../../connection/BackendRoutes.json';
 
 export default function ActiveAccount() {
-  const {setLogin, userInfo, userName } = useContext(DataContext);
+  const {setLogin, userInfo, userName, setUserName, setUserInfo } = useContext(DataContext);
  
   
   
-  
+  const logOut = (event) => {
+    event.preventDefault();
+    setLogin(0);
+    setUserInfo({});
+    setUserName('Log in');
+
+  }
 
   return (
     <div className="generalContainer">
@@ -40,7 +46,7 @@ export default function ActiveAccount() {
       <div className="button_container">
         <button>Edit Info</button>
         <button>Change Password</button>
-        <button>Log Out</button>
+        <button onClick={logOut}>Log Out</button>
       </div>
     </div>
     </div>
