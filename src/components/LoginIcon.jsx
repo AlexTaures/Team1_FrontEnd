@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useContext } from 'react'
-import { DataContext } from '../context/Datacontext'
+import { DataContext } from '../context/DataContext'
 import '../styles/Icon.css';
 
 export default function () {
