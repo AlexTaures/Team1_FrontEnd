@@ -60,7 +60,7 @@ export default function SingUp() {
 
   return (
     <div className='log_container'>
-        <div className="container">
+        <div className="subLogContainer">
             <div className="form" id="singup">
                     <h2>Sing Up</h2>
                     <div className="inputBox">

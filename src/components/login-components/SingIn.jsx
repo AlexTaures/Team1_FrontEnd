@@ -64,7 +64,7 @@ export default function SingIn() {
 
   return (
     <div className='log_container'>
-        <div className="container">
+        <div className="subLogContainer">
           <div className="form" id="singin">
         <h2>Sing In</h2>
         <div className="inputBox">

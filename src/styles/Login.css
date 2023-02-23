@@ -5,14 +5,17 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+  align-items: center;
+  justify-content: center;
   
 }
 .log_container{
   display: flex;
   justify-content: center;
   align-items: center;
+  align-content: center;
 }
-.container{
+.subLogContainer{
   padding: 40px;
   margin-top: 100px;
   border-radius: 20px;
@@ -24,7 +27,7 @@
   inset 5px 5px 15px rgba(0,0,0,0.35);
 }
 
-.container .form{
+.subLogContainer .form{
    display: flex;
    justify-content: center;
    align-items: center;
@@ -34,18 +37,18 @@
 
 
 
-.container .form h2{
+.subLogContainer .form h2{
   color: #696969;
   font-weight: 500;
   letter-spacing: 0.1em;
 }
 
-.container .form .inputBox{
+.subLogContainer .form .inputBox{
   position: relative;
   width: 300px;
 }
 
-.container .form .inputBox input{ /*Changes de input content color*/
+.subLogContainer .form .inputBox input{ /*Changes de input content color*/
   padding: 12px 10px 12px 48px;
   border: none;
   width: 100%;
@@ -61,7 +64,7 @@
   outline: none;
 }
 
-.container .form .inputBox span{
+.subLogContainer .form .inputBox span{
   position: absolute;
   left: 0;
   padding: 12px 10px 12px 48px;
@@ -73,8 +76,8 @@
   color: rgba(0, 0, 0, 0.5);
 }
 
-.container .form .inputBox input:valid ~ span,
-.container .form .inputBox input:focus ~span{ /*Makes animation text*/
+.subLogContainer .form .inputBox input:valid ~ span,
+.subLogContainer .form .inputBox input:focus ~span{ /*Makes animation text*/
   color: #828282;
   border: 1px solid #828282;
   background: #ffffff;
@@ -85,13 +88,13 @@
   letter-spacing: 0.1em;
 }
 
-.container .form .inputBox input:valid,
-.container .form .inputBox input:focus{
+.subLogContainer .form .inputBox input:valid,
+.subLogContainer .form .inputBox input:focus{
   border: 1px solid #828282;
 }
 
 
-.container .form .inputBox i{
+.subLogContainer .form .inputBox i{
   position: absolute;
   top: 15px;
   left: 16px;
@@ -102,7 +105,7 @@
   border-right: 1px solid #00dfc4;
 }
 
-.container .form .inputBox input[type="submit"]{
+.subLogContainer .form .inputBox input[type="submit"]{
   margin-top: 20px;
   background: #828282;
   color: #000000;
@@ -113,7 +116,7 @@
   5px 5px 5px rgba(0,0,0,0.35);
 }
 
-.container .form p{
+.subLogContainer .form p{
   color: rgb(2, 42, 23);
   margin-top: 5px;
   text-align: center;
@@ -121,7 +124,7 @@
   font-weight: 300;
 }
 
-.container .form p button{
+.subLogContainer .form p button{
   font-weight: 500;
   color: #828282;
   border-style: none;
