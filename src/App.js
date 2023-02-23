@@ -17,6 +17,7 @@ function App() {
         <SearchBar/>
         <NavLink to='/account' className='navlink'><LoginIcon/></NavLink>
         <NavLink to='/shopping' className='navlink'><CartIcon/></NavLink>
+        <NavLink to='/admin' className='navlink'>Admin</NavLink>
         
       </div>
 
@@ -29,9 +30,15 @@ function App() {
               <div>Shopping cart component</div>    
           }/>
 
+          <Route exact path="/admin" element={
+              <div>Admin component</div>    
+          }/>
+
           <Route exact path="/" element={
               <div>Home page component</div>
           }/>
+
+
 
       </Routes>
     </Router>
