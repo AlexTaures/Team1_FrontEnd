@@ -7,6 +7,7 @@ import LoginIcon from './components/LoginIcon';
 import CartIcon from "./components/CartIcon";
 import Login from './components/Login';
 import DashboardAdmin from './components/DashboardAdmin';
+import ShoppingCart from './components/ShoppingCart';
 
 function App() {
   
