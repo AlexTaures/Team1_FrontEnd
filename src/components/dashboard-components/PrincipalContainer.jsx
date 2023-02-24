@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { DataContext } from '../../context/DataContext';
+import '../../styles/dashboard.css';
 //DashboardComponents
 import Dashboard from './Dashboard';
 import AddProducts from './AddProducts';
@@ -17,7 +18,14 @@ import ViewSales from './ViewSales';
 export default function PrincipalContainer() {
   const { dashOption } = useContext(DataContext);
 
- if(dashOption === 1){
+ if(dashOption === 0){
+  return(
+    <div className="dash-principal-container pt-4 ps-4">
+      <h2>Searchin data...</h2>
+      <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+  )
+ }else if(dashOption === 1){
   return(
     <div className="dash-principal-container pt-4 ps-4">
       <h2>Dashboard</h2>

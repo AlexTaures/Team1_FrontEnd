@@ -18,7 +18,7 @@ export const DataProvider =  ( {children} ) => {
     const [userName, setUserName] = useState('Log in');
     const [cart, setCart] = useState(0);
     const [userInfo, setUserInfo] = useState({});
-    const [dashOption, setDashOption] = useState(1);
+    const [dashOption, setDashOption] = useState(0);
     //for Dashboard Fetch Data
     const [dashCustomers, setDashCustomers] = useState([]);
     const [dashSales, setDashSales] = useState([]);
