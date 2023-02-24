@@ -1,4 +1,8 @@
-import React, { useRef } from 'react'
+import React, { useContext, useRef, useState   } from 'react';
+import axios from 'axios';
+import routes from '../../connection/BackendRoutes.json';
+import { DataContext } from '../../context/DataContext';
+
 
 export default function AddProducts() {
   const refName = useRef(null);
@@ -10,6 +14,42 @@ export default function AddProducts() {
   const refBrandId = useRef(null);
   const refPresId = useRef(null);
   const refCatId = useRef(null);
+  const { dashProd } = useContext(DataContext);
+  let [message, setMessage] = useState('');
+
+  
+  const CreateProd = async () => {
+    try {
+      const i = dashProd.findIndex( (element) => element.name === refName.current.value);
+
+      if(i !== -1){
+        setMessage('The product "name" entered already exists in the database.');
+        return;
+      }else{
+      const url = routes['products'];
+      const body = {
+        "name": refName.current.value,
+        "description": refDesc.current.value,
+        "amount": refAmount.current.value,
+        "price": refPrice.current.value,
+        "admission_date": refAddDate.current.value,
+        "expiration_date": refExpDate.current.value,
+        "brand_id": refBrandId.current.value,
+        "presentation_id": refPresId.current.value,
+        "category_id": refCatId.current.value
+      }
+      
+      await axios.post(url, body);
+      //alert('Admin Created');
+      //setDashOption(1);
+      window.location.reload(false);
+      }
+      
+    } catch (error) {
+      console.log(error);
+      setMessage('Something is wrong in the fields or database connection');
+    }
+  }
 
   return (
     <div className='mainContainer d-flex'>
@@ -31,7 +71,7 @@ export default function AddProducts() {
               <input type="text" className='line-input' ref={refAmount}/>
           </div>
           <div className="line d-flex">
-              <h5 className='line-name'>Addmision Date</h5>
+              <h5 className='line-name'>Admission Date</h5>
               <input type="date" className='line-input' ref={refAddDate}/>
           </div>
           <div className="line d-flex">
@@ -50,7 +90,8 @@ export default function AddProducts() {
               <h5 className='line-name'>Category Id</h5>
               <input type="text" className='line-input' ref={refCatId}/>
           </div>
-          <button>Save</button>
+          <button onClick={CreateProd}>Save</button>
+          <p className='text-danger mt-3 ml-5'>{message}</p>
         </div>
         
       </div>

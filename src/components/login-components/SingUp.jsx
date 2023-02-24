@@ -38,7 +38,7 @@ export default function SingUp() {
     event.preventDefault();
     if(refConfPass.current.value !== refPass.current.value){
       setMessage("The confirmation password doesn't match");
-      console.log(message);
+      //console.log(message);
     }else{
       setMessage("");
       CreateAccount();

@@ -4,5 +4,6 @@
   "brands": "http://localhost:8000/api/brands",
   "presentations": "http://localhost:8000/api/presentations",
   "products": "http://localhost:8000/api/products",
-  "admins" : "http://localhost:8000/api/admins"
+  "admins" : "http://localhost:8000/api/admins",
+  "categories" : "http://localhost:8000/api/categories"
 }
