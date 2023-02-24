@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
 import { DataContext } from '../../context/DataContext';
+//DashboardComponents
 import Dashboard from './Dashboard';
+import AddProducts from './AddProducts';
+
 
 export default function PrincipalContainer() {
   const { dashOption } = useContext(DataContext);
@@ -22,6 +25,7 @@ export default function PrincipalContainer() {
   return(
     <div className="dash-principal-container pt-4 ps-4">
       <h2>Add Products</h2>
+      <AddProducts />
     </div>
   ) 
 }else if(dashOption === 4){

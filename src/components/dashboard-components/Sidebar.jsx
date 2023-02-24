@@ -174,7 +174,7 @@ export default function Sidebar() {
                     <li className="nav-item" onClick={setEleven}>
                         <a className="nav-link collapsed" data-target="#collapseTwo"
                             aria-expanded="true" aria-controls="collapseTwo">
-                            <i className="fa-solid fa-bottle-water"></i>
+                            <i className="fa-solid fa-copyright"></i>
                             <span> View Brands</span>
                         </a>
                     </li>
