@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { DataContext } from '../../context/DataContext';
+import { DataContext } from '../../context/Datacontext';
 import '../../styles/dashboard.css';
 
 export default function Dashboard() {

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { DataContext } from '../context/DataContext';
+import { DataContext } from '../context/Datacontext';
 import '../styles/Icon.css';
 
 // eslint-disable-next-line import/no-anonymous-default-export

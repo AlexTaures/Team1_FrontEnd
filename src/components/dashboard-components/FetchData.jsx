@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import axios from 'axios';
-import { DataContext } from '../../context/DataContext';
+import { DataContext } from '../../context/Datacontext';
 import routes from '../../connection/BackendRoutes.json';
 
 export default function FetchData() {

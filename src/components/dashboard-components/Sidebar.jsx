@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import '../../styles/dashboard.css';
-import { DataContext } from '../../context/DataContext';
+import { DataContext } from '../../context/Datacontext';
 
 export default function Sidebar() {
 

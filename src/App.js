@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes, NavLink} from 'react-router-dom'
 import SearchBar from './components/SearchBar';
-import { DataProvider } from './context/DataContext';
+import { DataProvider } from './context/Datacontext';
 import logo from "./img/amazont.png";
 import LoginIcon from './components/LoginIcon';
 import CartIcon from "./components/CartIcon";
