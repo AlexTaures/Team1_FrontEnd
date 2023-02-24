@@ -21,7 +21,7 @@ export default function PrincipalContainer() {
  if(dashOption === 0){
   return(
     <div className="dash-principal-container pt-4 ps-4">
-      <h2>Searchin data...</h2>
+      <h2>Searching data...</h2>
       <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     </div>
   )

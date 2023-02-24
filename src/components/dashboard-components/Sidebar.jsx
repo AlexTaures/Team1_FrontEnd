@@ -69,7 +69,7 @@ export default function Sidebar() {
     <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 
-                    <a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                    <a className="sidebar-brand d-flex align-items-center justify-content-center">
                         <div className="sidebar-brand-icon">
                         <i className="fa-solid fa-laptop-code"></i>
                         </div>
@@ -80,7 +80,7 @@ export default function Sidebar() {
                     <hr className="sidebar-divider my-0" />
 
 
-                    <li className="nav-item active" onClick={setOne}>
+                    <li className="nav-item" onClick={setOne}>
                         <a className="nav-link" >
                             <i className="fa-solid fa-house"></i>
                             <span> Dashboard</span></a>
