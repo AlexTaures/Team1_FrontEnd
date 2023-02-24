@@ -30,4 +30,16 @@ i:hover{
 
 .login_icon{
   display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.login_icon p{
+  text-decoration: none;
+}
+
+.login_icon p:hover{
+  text-decoration: none;
+  text-decoration-line: none;
+  text-decoration-style: solid;
 }

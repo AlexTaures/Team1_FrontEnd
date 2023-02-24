@@ -10,7 +10,7 @@ export default function () {
   return (
     <div className='login_icon'>
       <i className="fa-solid fa-user"></i>
-      <p className='user_nav_text'>{userName}</p>
-    </div>
+      <span className='user_nav_text'>{userName}</span>
+    </div> 
   )
 }

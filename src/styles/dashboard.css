@@ -5,15 +5,67 @@
     overflow:auto;
 }
 
-.statistics-container{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+
+.nav-item:hover{
+    cursor: pointer;
 }
 
-.container-info-dash{
-    display: flex;
-    width: 100%;
-   align-items: center;
-    flex-direction: column;
+button{
+    background: none;
+    border: none;
 }
+
+/****************DASHBOARD TABLES STYLES***********************************/
+.mainContainer{
+    border: gray 1px solid;
+    border-radius: 25px;
+    width: 100vh;
+    margin: auto;
+    background: white;
+    box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0,0,0,0.35)
+}
+.mainContainer .subContainer .line{
+    justify-content: start;
+}
+
+.subContainer{
+    margin-top: 25px;
+}
+
+
+.line-name{
+    width: 300px;
+    color: white;
+    background: rgb(74, 111, 220);
+    border-radius: 25px;
+    box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0,0,0,0.35)
+}
+
+.line-input{
+    border: solid rgba(128, 128, 128, 0.445) 1px  ;
+    padding:5px 5px 5px 25px;
+    margin-left: 15px;
+    border-radius: 25px;
+}
+
+.line-input:focus{
+    box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0,0,0,0.35)
+}
+
+.line h5{
+  padding:5px 5px 5px 25px;
+}
+
+.mainContainer .subContainer button{
+    padding:5px 25px 5px 25px;
+    margin: 25px 50% 0 50%;
+    border-radius: 25px;
+    color: white;
+    background: green;
+    box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0,0,0,0.35)
+}
+
