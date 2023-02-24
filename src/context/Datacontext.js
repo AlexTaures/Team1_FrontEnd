@@ -26,6 +26,7 @@ export const DataProvider =  ( {children} ) => {
     const [dashPres, setDashPres] = useState([]);
     const [dashProd, setDashPro] = useState([]);
     const [dashAdmin, setDashAdmin] = useState([]);
+    const [dashCat, setDashCat] = useState([]);
     
 
 
@@ -44,7 +45,8 @@ export const DataProvider =  ( {children} ) => {
             dashBrands,setDashBrands,
             dashPres,setDashPres,
             dashProd,setDashPro,
-            dashAdmin,setDashAdmin
+            dashAdmin,setDashAdmin,
+            dashCat, setDashCat
         }} >
             { children }
         </DataContext.Provider>

@@ -9,7 +9,10 @@ import AddBrand from './AddBrand';
 import AddAdmin from './AddAdmin';
 import ViewAdmin from './ViewAdmin';
 import ViewProducts from './ViewProducts';
-
+import ViewCategory from './ViewCategory';
+import ViewPresentations from './ViewPresentations';
+import ViewBrands from './ViewBrands';
+import ViewSales from './ViewSales';
 
 export default function PrincipalContainer() {
   const { dashOption } = useContext(DataContext);
@@ -74,24 +77,28 @@ export default function PrincipalContainer() {
   return(
     <div className="dash-principal-container pt-4 ps-4">
       <h2>Categories</h2>
+      <ViewCategory />
     </div>
   ) 
 }else if(dashOption === 10){
   return(
     <div className="dash-principal-container pt-4 ps-4">
       <h2>Presentations</h2>
+      <ViewPresentations/>
     </div>
   ) 
 }else if(dashOption === 11){
   return(
     <div className="dash-principal-container pt-4 ps-4">
       <h2>Brands</h2>
+      <ViewBrands/>
     </div>
   ) 
 }else if(dashOption === 12){
   return(
     <div className="dash-principal-container pt-4 ps-4">
       <h2>Sales</h2>
+      <ViewSales/>
     </div>
   ) 
 }

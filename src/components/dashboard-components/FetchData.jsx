@@ -5,7 +5,7 @@ import routes from '../../connection/BackendRoutes.json';
 
 export default function FetchData() {
 
-  const { setDashCustomers, setDashSales, setDashBrands, setDashPres, setDashPro, setDashAdmin } = useContext(DataContext);
+  const { setDashCustomers, setDashSales, setDashBrands, setDashPres, setDashPro, setDashAdmin, setDashCat } = useContext(DataContext);
 
   const fetchData = async () => {
     try {
@@ -68,6 +68,15 @@ export default function FetchData() {
       console.log(error);
     }
 
+    try {
+      await axios.get(routes['categories'])
+      .then(response => {
+        setDashCat(response.data);
+      });
+
+    } catch (error) {
+      console.log(error);
+    }
 
 
 

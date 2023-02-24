@@ -5,9 +5,9 @@ export default function ViewProducts() {
   const { dashProd, dashBrands, dashPres } = useContext(DataContext);
 
   return (
-    <div className='mainContainer d-flex' id='ViewProd'>
+    <div className='mainContainer d-flex' id='weightView'>
       <div className="subContainer text-start">
-          <table className='products_tab'>
+          <table className='weight_tab'>
             <tr>
               <th><h5 className='line-name'>id</h5></th>
               <th><h5 className='line-name'>name</h5></th>

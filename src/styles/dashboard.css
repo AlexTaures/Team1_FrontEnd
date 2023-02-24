@@ -81,11 +81,11 @@ button{
     padding: 5px 10px 5px 10px;
 }
 
-.mainContainer .subContainer .products_tab td .line-name, .mainContainer .subContainer .products_tab th .line-name{
+.mainContainer .subContainer .weight_tab td .line-name, .mainContainer .subContainer .weight_tab th .line-name{
     width: auto;
 }
 
-#ViewProd{
+#weightView{
     width: 135vh;
 }
 
