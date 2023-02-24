@@ -7,7 +7,7 @@ import LoginIcon from './components/LoginIcon';
 import CartIcon from "./components/CartIcon";
 import Login from './components/Login';
 import DashboardAdmin from './components/DashboardAdmin';
-import ShoppingCart from './components/ShoppingCart';
+import ShoppingCart from './components/Shopping-cart/ShoppingCart';
 
 function App() {
   
@@ -31,7 +31,7 @@ function App() {
           }/>
 
           <Route exact path="/shopping" element={
-              <div>Shopping cart component</div>    
+              <ShoppingCart/>  
           }/>
           <Route exact path="/admin" element={
               <DashboardAdmin/>    
