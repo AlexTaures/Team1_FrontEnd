@@ -3,6 +3,8 @@ import { DataContext } from '../../context/DataContext';
 //DashboardComponents
 import Dashboard from './Dashboard';
 import AddProducts from './AddProducts';
+import AddCategory from './AddCategory';
+import AddPresentation from './AddPresentation';
 
 
 export default function PrincipalContainer() {
@@ -32,12 +34,14 @@ export default function PrincipalContainer() {
   return(
     <div className="dash-principal-container pt-4 ps-4">
       <h2>Add Category</h2>
+      <AddCategory />
     </div>
   ) 
 }else if(dashOption === 5){
   return(
     <div className="dash-principal-container pt-4 ps-4">
       <h2>Add Presentation</h2>
+      <AddPresentation />
     </div>
   ) 
 }else if(dashOption === 6){
