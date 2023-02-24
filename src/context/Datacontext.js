@@ -19,6 +19,13 @@ export const DataProvider =  ( {children} ) => {
     const [cart, setCart] = useState(0);
     const [userInfo, setUserInfo] = useState({});
     const [dashOption, setDashOption] = useState(1);
+    //for Dashboard Fetch Data
+    const [dashCustomers, setDashCustomers] = useState([]);
+    const [dashSales, setDashSales] = useState([]);
+    const [dashBrands, setDashBrands] = useState([]);
+    const [dashPres, setDashPres] = useState([]);
+    const [dashProd, setDashPro] = useState([]);
+    const [dashAdmin, setDashAdmin] = useState([]);
     
 
 
@@ -31,7 +38,13 @@ export const DataProvider =  ( {children} ) => {
             cart, setCart,
             userName, setUserName,
             userInfo, setUserInfo,
-            dashOption, setDashOption
+            dashOption, setDashOption,
+            dashCustomers, setDashCustomers,
+            dashSales,setDashSales,
+            dashBrands,setDashBrands,
+            dashPres,setDashPres,
+            dashProd,setDashPro,
+            dashAdmin,setDashAdmin
         }} >
             { children }
         </DataContext.Provider>

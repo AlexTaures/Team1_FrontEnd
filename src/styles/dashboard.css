@@ -5,18 +5,6 @@
     overflow:auto;
 }
 
-.statistics-container{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.container-info-dash{
-    display: flex;
-    width: 100%;
-   align-items: center;
-    flex-direction: column;
-}
 
 .nav-item:hover{
     cursor: pointer;
@@ -28,4 +16,24 @@ button{
 }
 
 /****************DASHBOARD TABLES STYLES***********************************/
+.mainContainer{
+    border: gray 1px solid;
+    border-radius: 25px;
+    width: 100vh;
+    margin: auto;
+}
+.mainContainer .subContainer .line{
+    justify-content: start;
+}
+
+
+.line-name{
+    width: 300px;
+    color: black;
+}
+
+.line h5{
+  padding:5px 5px 5px 25px;
+  font-size: 1.5em;
+}
 

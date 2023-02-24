@@ -4,7 +4,7 @@ import { DataContext } from '../../context/DataContext';
 
 export default function Sidebar() {
 
-  const { setDashOption, dashOption } = useContext(DataContext);
+  const { setDashOption } = useContext(DataContext);
 
 
   const setOne = (event) => {
@@ -71,7 +71,7 @@ export default function Sidebar() {
 
                     <a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                         <div className="sidebar-brand-icon">
-                        <i class="fa-solid fa-laptop-code"></i>
+                        <i className="fa-solid fa-laptop-code"></i>
                         </div>
                         <div className="sidebar-brand-text mx-3">Admin View</div>
                     </a>
@@ -82,7 +82,7 @@ export default function Sidebar() {
 
                     <li className="nav-item active" onClick={setOne}>
                         <a className="nav-link" >
-                            <i class="fa-solid fa-house"></i>
+                            <i className="fa-solid fa-house"></i>
                             <span> Dashboard</span></a>
                     </li>
 
@@ -98,7 +98,7 @@ export default function Sidebar() {
                     <li className="nav-item" onClick={setTwo}>
                         <a className="nav-link collapsed"  data-target="#collapseTwo"
                             aria-expanded="true" aria-controls="collapseTwo">
-                            <i class="fa-sharp fa-solid fa-user-plus"></i>
+                            <i className="fa-sharp fa-solid fa-user-plus"></i>
                             <span> Add Users Admin</span>
                         </a>
                     </li>
@@ -107,28 +107,28 @@ export default function Sidebar() {
                     <li className="nav-item" onClick={setThree}>
                         <a className="nav-link" data-target="#collapsetilities"
                             aria-expanded="true" aria-controls="collapseUtilities">
-                            <i class="fa-sharp fa-solid fa-plus"></i>
+                            <i className="fa-sharp fa-solid fa-plus"></i>
                             <span> Add Products</span>
                         </a>
                     </li>
                     <li className="nav-item" onClick={setFour}>
                         <a className="nav-link" data-target="#collapsetilities"
                             aria-expanded="true" aria-controls="collapseUtilities">
-                            <i class="fa-sharp fa-solid fa-plus"></i>
+                            <i className="fa-sharp fa-solid fa-plus"></i>
                             <span> Add Category</span>
                         </a>
                     </li>
                     <li className="nav-item" onClick={setFive}>
                         <a className="nav-link" data-target="#collapsetilities"
                             aria-expanded="true" aria-controls="collapseUtilities">
-                            <i class="fa-sharp fa-solid fa-plus"></i>
+                            <i className="fa-sharp fa-solid fa-plus"></i>
                             <span> Add Presentation</span>
                         </a>
                     </li>
                     <li className="nav-item" onClick={setSix}>
                         <a className="nav-link"  data-target="#collapsetilities"
                             aria-expanded="true" aria-controls="collapseUtilities">
-                            <i class="fa-sharp fa-solid fa-plus"></i>
+                            <i className="fa-sharp fa-solid fa-plus"></i>
                             <span> Add Brand</span>
                         </a>
                     </li>
@@ -144,14 +144,14 @@ export default function Sidebar() {
 
                     <li className="nav-item" onClick={setSeven}>
                         <a className="nav-link">
-                        <i class="fa-solid fa-user"></i>
+                        <i className="fa-solid fa-user"></i>
                             <span> View Users Admin</span></a>
                     </li>
 
                     <li className="nav-item" onClick={setEight}>
                         <a className="nav-link collapsed" data-target="#collapseTwo"
                             aria-expanded="true" aria-controls="collapseTwo">
-                            <i class="fa-solid fa-bottle-water"></i>
+                            <i className="fa-solid fa-bottle-water"></i>
                             <span> View Products</span>
                         </a>
                     </li>
@@ -159,7 +159,7 @@ export default function Sidebar() {
                     <li className="nav-item" onClick={setNine}>
                         <a className="nav-link collapsed" data-target="#collapseTwo"
                             aria-expanded="true" aria-controls="collapseTwo">
-                            <i class="fa-solid fa-bottle-water"></i>
+                            <i className="fa-solid fa-bottle-water"></i>
                             <span> View Categories</span>
                         </a>
                     </li>
@@ -167,14 +167,14 @@ export default function Sidebar() {
                     <li className="nav-item" onClick={setTen}>
                         <a className="nav-link collapsed"  data-target="#collapseTwo"
                             aria-expanded="true" aria-controls="collapseTwo">
-                            <i class="fa-solid fa-bottle-water"></i>
+                            <i className="fa-solid fa-bottle-water"></i>
                             <span> View Presentations</span>
                         </a>
                     </li>
                     <li className="nav-item" onClick={setEleven}>
                         <a className="nav-link collapsed" data-target="#collapseTwo"
                             aria-expanded="true" aria-controls="collapseTwo">
-                            <i class="fa-solid fa-bottle-water"></i>
+                            <i className="fa-solid fa-bottle-water"></i>
                             <span> View Brands</span>
                         </a>
                     </li>

@@ -1,7 +1,46 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { DataContext } from '../../context/DataContext';
+import '../../styles/dashboard.css';
 
 export default function Dashboard() {
+
+ const { userName } = useContext(DataContext);
+ const { dashCustomers, dashSales, dashBrands, dashPres, dashProd} = useContext(DataContext);
+
   return (
-    <div>Dashboard</div>
+    <div className='mainContainer d-flex'>
+      <div className="subContainer text-start">
+            <div className="line d-flex">
+              <h5 className='line-name'>Current Administrator</h5>
+              <h5 className='line-data'>{userName}</h5>
+            </div>
+            <div className="line d-flex ">
+              <h5 className='line-name'>Customers Entries</h5>
+              <h5 className='line-data'>{dashCustomers.length}</h5>
+            </div>
+            <div className="line d-flex">
+              <h5 className='line-name'>Products Entries</h5>
+              <h5 className='line-data'>{dashProd.length}</h5>
+            </div>
+      </div>
+
+      <div className="subContainer">
+            <div className="line d-flex">
+              <h5 className='line-name'>Brands Entries</h5>
+              <h5 className='line-data'>{dashBrands.length}</h5>
+            </div>
+            <div className="line d-flex">
+              <h5 className='line-name'>Presentations Entries</h5>
+              <h5 className='line-data'>{dashPres.length}</h5>
+            </div>
+            <div className="line d-flex">
+              <h5 className='line-name'>Sales Entries</h5>
+              <h5 className='line-data'>{dashSales.length}</h5>
+            </div>
+      </div>
+      
+      
+      
+    </div>
   )
 }

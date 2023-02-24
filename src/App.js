@@ -19,7 +19,7 @@ function App() {
         <NavLink to='/account' className='navlink'><LoginIcon/></NavLink>
         <NavLink to='/shopping' className='navlink'><CartIcon/></NavLink>
 
-        <NavLink to='/admin' className='navlink'><i class="fa-solid fa-laptop-code"></i><span> Admin</span></NavLink>
+        <NavLink to='/admin' className='navlink'><i className="fa-solid fa-laptop-code"></i><span> Admin</span></NavLink>
 
         
       </div>
