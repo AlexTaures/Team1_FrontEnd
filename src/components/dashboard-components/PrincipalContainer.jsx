@@ -5,6 +5,9 @@ import Dashboard from './Dashboard';
 import AddProducts from './AddProducts';
 import AddCategory from './AddCategory';
 import AddPresentation from './AddPresentation';
+import AddBrand from './AddBrand';
+import AddAdmin from './AddAdmin';
+import ViewAdmin from './ViewAdmin';
 
 
 export default function PrincipalContainer() {
@@ -21,6 +24,7 @@ export default function PrincipalContainer() {
   return(
     <div className="dash-principal-container pt-4 ps-4">
       <h2>Add User Admin</h2>
+      <AddAdmin/>
     </div>
   ) 
 }else if(dashOption === 3){
@@ -48,12 +52,14 @@ export default function PrincipalContainer() {
   return(
     <div className="dash-principal-container pt-4 ps-4">
       <h2>Add Brand</h2>
+      <AddBrand />
     </div>
   ) 
 }else if(dashOption === 7){
   return(
     <div className="dash-principal-container pt-4 ps-4">
       <h2>User Administrators</h2>
+      <ViewAdmin />
     </div>
   ) 
 }else if(dashOption === 8){
