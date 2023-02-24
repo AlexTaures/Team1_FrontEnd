@@ -71,3 +71,23 @@ button{
 
 /****for table**********/
 
+
+
+.mainContainer .subContainer table td, .mainContainer .subContainer table th{
+    text-align: center;
+    padding: 5px 10px 5px 10px;
+}
+.mainContainer .subContainer table td h5, .mainContainer .subContainer table th h5{
+    padding: 5px 10px 5px 10px;
+}
+
+.mainContainer .subContainer .products_tab td .line-name, .mainContainer .subContainer .products_tab th .line-name{
+    width: auto;
+}
+
+#ViewProd{
+    width: 135vh;
+}
+
+
+

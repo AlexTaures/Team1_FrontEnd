@@ -8,6 +8,7 @@ import AddPresentation from './AddPresentation';
 import AddBrand from './AddBrand';
 import AddAdmin from './AddAdmin';
 import ViewAdmin from './ViewAdmin';
+import ViewProducts from './ViewProducts';
 
 
 export default function PrincipalContainer() {
@@ -66,6 +67,7 @@ export default function PrincipalContainer() {
   return(
     <div className="dash-principal-container pt-4 ps-4">
       <h2>Products</h2>
+      <ViewProducts/>
     </div>
   ) 
 }else if(dashOption === 9){

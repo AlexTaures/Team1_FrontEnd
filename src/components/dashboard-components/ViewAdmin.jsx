@@ -8,11 +8,12 @@ export default function ViewAdmin() {
       <div className="subContainer text-start">
           <table>
             <tr>
-              <th>id</th>
-              <th>user_name</th>
+              <th><h5 className='line-name'>id</h5></th>
+              <th><h5 className='line-name'>user_name</h5></th>
+              <th><h5 className='line-name'>password</h5></th>
             </tr>
             {
-            dashAdmin.map((opt, index)=><tr key={index}><th>{opt.id}</th><th>{opt.user_name}</th></tr>)
+            dashAdmin.map((opt, index)=><tr key={index}><td>{opt.id}</td><td>{opt.user_name}</td><td>{"*".repeat(opt.password.length)}</td></tr>)
           }
           </table>
       </div>

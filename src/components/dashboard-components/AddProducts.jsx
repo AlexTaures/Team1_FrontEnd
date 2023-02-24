@@ -31,7 +31,7 @@ export default function AddProducts() {
               <input type="text" className='line-input' ref={refAmount}/>
           </div>
           <div className="line d-flex">
-              <h5 className='line-name'>Addmision Date</h5>
+              <h5 className='line-name'>Admission Date</h5>
               <input type="date" className='line-input' ref={refAddDate}/>
           </div>
           <div className="line d-flex">
