@@ -48,6 +48,7 @@ button{
     padding:5px 5px 5px 25px;
     margin-left: 15px;
     border-radius: 25px;
+    width:40%;
 }
 
 .line-input:focus{

@@ -14,14 +14,21 @@ export default function AddProducts() {
   const refBrandId = useRef(null);
   const refPresId = useRef(null);
   const refCatId = useRef(null);
-  const { dashProd } = useContext(DataContext);
+  const { dashProd, dashBrands, dashPres, dashCat } = useContext(DataContext);
   let [message, setMessage] = useState('');
 
   
   const CreateProd = async () => {
     try {
       const i = dashProd.findIndex( (element) => element.name === refName.current.value);
-
+      const brandId = dashBrands[
+        dashBrands.findIndex((element) => element.brand_name === refBrandId.current.value)].id
+      const presId = dashPres[
+        dashPres.findIndex((element) => element.presentation_type === refPresId.current.value)].id
+      const catId = dashCat[
+        dashCat.findIndex((element) => element.category_name === refCatId.current.value)].id
+           
+      
       if(i !== -1){
         setMessage('The product "name" entered already exists in the database.');
         return;
@@ -34,9 +41,9 @@ export default function AddProducts() {
         "price": refPrice.current.value,
         "admission_date": refAddDate.current.value,
         "expiration_date": refExpDate.current.value,
-        "brand_id": refBrandId.current.value,
-        "presentation_id": refPresId.current.value,
-        "category_id": refCatId.current.value
+        "brand_id": brandId,
+        "presentation_id": presId,
+        "category_id": catId
       }
       
       await axios.post(url, body);
@@ -80,15 +87,30 @@ export default function AddProducts() {
           </div>
           <div className="line d-flex">
               <h5 className='line-name'>Brand Id</h5>
-              <input type="text" className='line-input' ref={refBrandId}/>
+              <select className='line-input' ref={refBrandId} required>
+                <option value=""></option>
+              {
+                dashBrands.map((opt, index)=><option key={index}>{opt.brand_name}</option>)
+               }
+              </select>
           </div>
           <div className="line d-flex">
               <h5 className='line-name'>Presentation Id</h5>
-              <input type="text" className='line-input' ref={refPresId}/>
+              <select className='line-input' ref={refPresId}>
+              <option value=""></option>
+              {
+                dashPres.map((opt, index)=><option key={index}>{opt.presentation_type}</option>)
+               }
+              </select>
           </div>
           <div className="line d-flex">
               <h5 className='line-name'>Category Id</h5>
-              <input type="text" className='line-input' ref={refCatId}/>
+              <option value=""></option>
+              <select className='line-input' ref={refCatId}>
+              {
+                dashCat.map((opt, index)=><option key={index}>{opt.category_name}</option>)
+               }
+              </select>
           </div>
           <button onClick={CreateProd}>Save</button>
           <p className='text-danger mt-3 ml-5'>{message}</p>

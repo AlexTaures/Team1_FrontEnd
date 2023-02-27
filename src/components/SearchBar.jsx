@@ -19,7 +19,7 @@ const search = (event) => {
         <div className='user_address'>
         <i className="fa-solid fa-location-dot"></i> {userAddress}</div>
         <div className="search_input">
-          <select name='selectCategory'>
+          <select className='selectCategory'>
           {
             categories.map((opt, index)=><option key={index}>{opt}</option>)
           }
