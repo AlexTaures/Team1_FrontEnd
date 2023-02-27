@@ -1,8 +1,17 @@
 import React, { useContext } from 'react';
 import { DataContext } from '../../context/Datacontext';
+import EditProducts from './EditProducts';
+
 
 export default function ViewProducts() {
-  const { dashProd, dashBrands, dashPres, dashCat} = useContext(DataContext);
+  const { dashProd, dashBrands, dashPres, dashCat, setDashOption, setCurrentId} = useContext(DataContext);  
+
+  const editProduct = (event) => {
+    event.preventDefault();
+    let id = event.target.getAttribute('prod_id');
+    setCurrentId(id);
+    setDashOption(13);
+  }
 
   return (
     <div className='mainContainer d-flex' id='weightView'>
@@ -18,7 +27,7 @@ export default function ViewProducts() {
               <th><h5 className='line-name'>brand</h5></th>
               <th><h5 className='line-name'>presentation</h5></th>
               <th><h5 className='line-name'>category</h5></th>
-
+              <th><h5 className='line-name'>option</h5></th>
             </tr>
             {
             dashProd.map((opt, index)=><tr key={index}>
@@ -31,7 +40,7 @@ export default function ViewProducts() {
               <td>{dashBrands[dashBrands.findIndex((element) => element.id === opt.brand_id)].brand_name}</td>
               <td>{dashPres[dashPres.findIndex((element) => element.id === opt.presentation_id)].presentation_type}</td>
               <td>{dashCat[dashCat.findIndex((element) => element.id === opt.category_id)].category_name}</td>
-              
+              <td><button onClick={editProduct} prod_id={opt.id}>Edit</button></td>
               
               </tr>)
           }

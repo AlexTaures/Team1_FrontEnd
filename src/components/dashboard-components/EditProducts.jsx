@@ -1,10 +1,9 @@
-import React, { useContext, useRef, useState   } from 'react';
-import axios from 'axios';
-import routes from '../../connection/BackendRoutes.json';
+import React, { useContext, useRef, useState } from 'react'
 import { DataContext } from '../../context/Datacontext';
+import routes from '../../connection/BackendRoutes.json';
+import axios from 'axios';
 
-
-export default function AddProducts() {
+export default function EditProducts(props) {
   const refName = useRef(null);
   const refDesc = useRef(null);
   const refAmount = useRef(null);
@@ -14,10 +13,11 @@ export default function AddProducts() {
   const refBrandId = useRef(null);
   const refPresId = useRef(null);
   const refCatId = useRef(null);
-  const { dashProd, dashBrands, dashPres, dashCat } = useContext(DataContext);
+  const { dashProd, dashBrands, dashPres, dashCat, setDashOption } = useContext(DataContext);
   let [message, setMessage] = useState('');
 
-  
+
+  /****save changes************/
   const CreateProd = async () => {
     try {
       const i = dashProd.findIndex( (element) => element.name === refName.current.value);
@@ -63,40 +63,43 @@ export default function AddProducts() {
         <div className="subContainer text-start">
           <div className="line d-flex">
               <h5 className='line-name'>Name</h5>
-              <input type="text" className='line-input' ref={refName}/>
+              <input type="text" className='line-input' ref={refName} defaultValue={props.name}/>
           </div>
           <div className="line d-flex">
               <h5 className='line-name'>Descripcion</h5>
-              <input type="text" className='line-input' ref={refDesc}/>
+              <input type="text" className='line-input' ref={refDesc} defaultValue={props.description}/>
           </div>
           <div className="line d-flex">
               <h5 className='line-name'>Price</h5>
-              <input type="text" className='line-input' ref={refPrice}/>
+              <input type="text" className='line-input' ref={refPrice} defaultValue={props.price}/>
           </div>
           <div className="line d-flex">
               <h5 className='line-name'>Amount</h5>
-              <input type="text" className='line-input' ref={refAmount}/>
+              <input type="text" className='line-input' ref={refAmount} defaultValue={props.amount}/>
           </div>
           <div className="line d-flex">
               <h5 className='line-name'>Admission Date</h5>
-              <input type="date" className='line-input' ref={refAddDate}/>
+              <input type="date" className='line-input' ref={refAddDate} defaultValue={props.admission_date}/>
           </div>
           <div className="line d-flex">
               <h5 className='line-name'>Expiration Date</h5>
-              <input type="date" className='line-input' ref={refExpDate}/>
+              <input type="date" className='line-input' ref={refExpDate} defaultValue={props.expiration_date}/>
           </div>
           <div className="line d-flex">
               <h5 className='line-name'>Brand</h5>
-              <select className='line-input' ref={refBrandId} required>
+              <select className='line-input' ref={refBrandId} defaultValue={props.brand} required>
                 <option value=""></option>
               {
-                dashBrands.map((opt, index)=><option key={index}>{opt.brand_name}</option>)
+                dashBrands.map((opt, index)=>
+                
+                <option key={index}>{opt.brand_name}</option>
+                )
                }
               </select>
           </div>
           <div className="line d-flex">
               <h5 className='line-name'>Presentation</h5>
-              <select className='line-input' ref={refPresId}>
+              <select className='line-input' ref={refPresId} defaultValue={props.presentation} required>
               <option value=""></option>
               {
                 dashPres.map((opt, index)=><option key={index}>{opt.presentation_type}</option>)
@@ -106,7 +109,7 @@ export default function AddProducts() {
           <div className="line d-flex">
               <h5 className='line-name'>Category</h5>
               <option value=""></option>
-              <select className='line-input' ref={refCatId}>
+              <select className='line-input' ref={refCatId} defaultValue={props.category} required>
                 <option value=""></option>
               {
                 dashCat.map((opt, index)=><option key={index}>{opt.category_name}</option>)
@@ -114,6 +117,7 @@ export default function AddProducts() {
               </select>
           </div>
           <button onClick={CreateProd}>Save</button>
+          <button>Cancel</button>
           <p className='text-danger mt-3 ml-5'>{message}</p>
         </div>
         

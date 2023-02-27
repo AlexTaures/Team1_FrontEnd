@@ -14,9 +14,10 @@ import ViewCategory from './ViewCategory';
 import ViewPresentations from './ViewPresentations';
 import ViewBrands from './ViewBrands';
 import ViewSales from './ViewSales';
+import EditProducts from './EditProducts';
 
 export default function PrincipalContainer() {
-  const { dashOption } = useContext(DataContext);
+  const { dashOption, currentId, dashProd, dashBrands, dashPres, dashCat } = useContext(DataContext);
 
  if(dashOption === 0){
   return(
@@ -107,6 +108,29 @@ export default function PrincipalContainer() {
     <div className="dash-principal-container pt-4 ps-4">
       <h2>Sales</h2>
       <ViewSales/>
+    </div>
+  ) 
+}else if(dashOption === 13){
+  return(
+    <div className="dash-principal-container pt-4 ps-4">
+      <h2>Edit Product Name = "{dashProd[dashProd.findIndex((element) => element.id == currentId)].name}"</h2>
+      <EditProducts 
+          name={dashProd[dashProd.findIndex((element) => element.id == currentId)].name}
+          description={dashProd[dashProd.findIndex((element) => element.id == currentId)].description}
+          amount={dashProd[dashProd.findIndex((element) => element.id == currentId)].amount}
+          price={dashProd[dashProd.findIndex((element) => element.id == currentId)].price}
+          admission_date={dashProd[dashProd.findIndex((element) => element.id == currentId)].admission_date}
+          expiration_date={dashProd[dashProd.findIndex((element) => element.id == currentId)].expiration_date}
+          brand={dashBrands[
+            dashBrands.findIndex((element)=>element.id == dashProd[dashProd.findIndex((element) => element.id == currentId)].brand_id)
+          ].brand_name}
+          category={dashCat[  
+            dashCat.findIndex((element)=>element.id == dashProd[dashProd.findIndex((element) => element.id == currentId)].category_id)
+          ].category_name}
+          presentation={dashPres[
+            dashPres.findIndex((element)=>element.id == dashProd[dashProd.findIndex((element) => element.id == currentId)].presentation_id)
+          ].presentation_type}
+          />
     </div>
   ) 
 }
