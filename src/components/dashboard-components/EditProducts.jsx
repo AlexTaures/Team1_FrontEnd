@@ -13,14 +13,14 @@ export default function EditProducts(props) {
   const refBrandId = useRef(null);
   const refPresId = useRef(null);
   const refCatId = useRef(null);
-  const { dashProd, dashBrands, dashPres, dashCat, setDashOption } = useContext(DataContext);
+  const { dashBrands, dashPres, dashCat, setDashOption } = useContext(DataContext);
   let [message, setMessage] = useState('');
 
 
   /****save changes************/
-  const CreateProd = async () => {
+  const saveProd = async () => {
     try {
-      const i = dashProd.findIndex( (element) => element.name === refName.current.value);
+      //const i = dashProd.findIndex( (element) => element.name === refName.current.value);
       const brandId = dashBrands[
         dashBrands.findIndex((element) => element.brand_name === refBrandId.current.value)].id
       const presId = dashPres[
@@ -28,12 +28,7 @@ export default function EditProducts(props) {
       const catId = dashCat[
         dashCat.findIndex((element) => element.category_name === refCatId.current.value)].id
            
-      
-      if(i !== -1){
-        setMessage('The product "name" entered already exists in the database.');
-        return;
-      }else{
-      const url = routes['products'];
+      const url = routes['products']+`/${props.id}`;
       const body = {
         "name": refName.current.value,
         "description": refDesc.current.value,
@@ -46,16 +41,21 @@ export default function EditProducts(props) {
         "category_id": catId
       }
       
-      await axios.post(url, body);
+      await axios.put(url, body);
       //alert('Admin Created');
       //setDashOption(1);
       window.location.reload(false);
-      }
+      
       
     } catch (error) {
       console.log(error);
       setMessage('Something is wrong in the fields or database connection');
     }
+  }
+
+  const cancelEdit = (event) => {
+    event.preventDefault();
+    setDashOption(8);
   }
 
   return (
@@ -116,8 +116,10 @@ export default function EditProducts(props) {
                }
               </select>
           </div>
-          <button onClick={CreateProd}>Save</button>
-          <button>Cancel</button>
+          <div className='buttonContainer'>
+            <button className='save' onClick={saveProd}>Save</button>
+            <button className='cancel' onClick={cancelEdit}>Cancel</button>
+          </div>
           <p className='text-danger mt-3 ml-5'>{message}</p>
         </div>
         

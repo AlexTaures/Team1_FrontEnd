@@ -17,7 +17,8 @@ export default function ViewProducts() {
     <div className='mainContainer d-flex' id='weightView'>
       <div className="subContainer text-start">
           <table className='weight_tab'>
-            <tr>
+            <thead>
+              <tr>
               <th><h5 className='line-name'>id</h5></th>
               <th><h5 className='line-name'>name</h5></th>
               <th><h5 className='line-name'>description</h5></th>
@@ -28,7 +29,9 @@ export default function ViewProducts() {
               <th><h5 className='line-name'>presentation</h5></th>
               <th><h5 className='line-name'>category</h5></th>
               <th><h5 className='line-name'>option</h5></th>
-            </tr>
+              </tr>
+            </thead>
+            <tbody>
             {
             dashProd.map((opt, index)=><tr key={index}>
               <td>{opt.id}</td>
@@ -40,10 +43,10 @@ export default function ViewProducts() {
               <td>{dashBrands[dashBrands.findIndex((element) => element.id === opt.brand_id)].brand_name}</td>
               <td>{dashPres[dashPres.findIndex((element) => element.id === opt.presentation_id)].presentation_type}</td>
               <td>{dashCat[dashCat.findIndex((element) => element.id === opt.category_id)].category_name}</td>
-              <td><button onClick={editProduct} prod_id={opt.id}>Edit</button></td>
-              
+              <td><button className='edit' onClick={editProduct} prod_id={opt.id}>Edit</button></td>
               </tr>)
           }
+            </tbody>
           </table>
       </div>
     </div>

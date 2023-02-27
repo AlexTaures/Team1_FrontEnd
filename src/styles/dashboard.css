@@ -31,6 +31,9 @@ button{
 
 .subContainer{
     margin-top: 25px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
 
 
@@ -70,6 +73,31 @@ button{
     5px 5px 15px rgba(0,0,0,0.35)
 }
 
+.mainContainer .subContainer button:hover{
+  scale: 1.05;
+}
+
+.mainContainer .subContainer .buttonContainer{
+  display: flex;
+  width: 100px;
+  margin: auto;
+}
+
+.mainContainer .subContainer .cancel{
+  background: rgb(133, 2, 2);
+}
+
+td{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.mainContainer .subContainer .edit{
+  margin: auto;
+  background: rgb(74, 111, 220);
+
+}
 /****for table**********/
 
 

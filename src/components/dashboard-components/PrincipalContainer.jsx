@@ -15,6 +15,10 @@ import ViewPresentations from './ViewPresentations';
 import ViewBrands from './ViewBrands';
 import ViewSales from './ViewSales';
 import EditProducts from './EditProducts';
+import EditCategory from './EditCategory';
+import EditPresentation from './EditPresentation';
+import EditBrand from './EditBrand';
+
 
 export default function PrincipalContainer() {
   const { dashOption, currentId, dashProd, dashBrands, dashPres, dashCat } = useContext(DataContext);
@@ -113,8 +117,9 @@ export default function PrincipalContainer() {
 }else if(dashOption === 13){
   return(
     <div className="dash-principal-container pt-4 ps-4">
-      <h2>Edit Product Name = "{dashProd[dashProd.findIndex((element) => element.id == currentId)].name}"</h2>
+      <h2>Edit Product id = {dashProd[dashProd.findIndex((element) => element.id == currentId)].id}</h2>
       <EditProducts 
+          id = {currentId}
           name={dashProd[dashProd.findIndex((element) => element.id == currentId)].name}
           description={dashProd[dashProd.findIndex((element) => element.id == currentId)].description}
           amount={dashProd[dashProd.findIndex((element) => element.id == currentId)].amount}
@@ -131,6 +136,36 @@ export default function PrincipalContainer() {
             dashPres.findIndex((element)=>element.id == dashProd[dashProd.findIndex((element) => element.id == currentId)].presentation_id)
           ].presentation_type}
           />
+    </div>
+  ) 
+}else if(dashOption === 14){
+  return(
+    <div className="dash-principal-container pt-4 ps-4">
+      <h2>Edit Category id = {currentId}</h2>
+      <EditCategory 
+        id = {currentId}
+        category_name = {dashCat[dashCat.findIndex((element) => element.id == currentId)].category_name}
+      />
+    </div>
+  ) 
+}else if(dashOption === 15){
+  return(
+    <div className="dash-principal-container pt-4 ps-4">
+      <h2>Edit Presentation id = {currentId}</h2>
+      <EditPresentation 
+        id = {currentId}
+        presentation_type = {dashPres[dashPres.findIndex((element) => element.id == currentId)].presentation_type}
+      />
+    </div>
+  ) 
+}else if(dashOption === 16){
+  return(
+    <div className="dash-principal-container pt-4 ps-4">
+      <h2>Edit Brand id = {currentId}</h2>
+      <EditBrand
+        id = {currentId}
+        brand_name = {dashBrands[dashBrands.findIndex((element) => element.id == currentId)].brand_name}
+      />
     </div>
   ) 
 }
