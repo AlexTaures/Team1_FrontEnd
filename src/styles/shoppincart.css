@@ -1,0 +1,27 @@
+.data-cost{
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.container-selected-products{
+
+}
+
+.amount-product{
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+}
+
+.amount-product input{
+    border-radius: 10px;
+}
+
+.container-products-available{
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+}
