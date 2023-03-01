@@ -16,7 +16,6 @@ export const DataProvider =  ( {children} ) => {
     const [userAddress, setUserAddress] = useState(addressTest);
     const [login, setLogin] = useState(0);
     const [userName, setUserName] = useState('Log in');
-    const [cart, setCart] = useState(0);
     const [userInfo, setUserInfo] = useState({});
     const [dashOption, setDashOption] = useState(0);
     //for Dashboard Fetch Data
@@ -32,7 +31,10 @@ export const DataProvider =  ( {children} ) => {
     const [searchText, setSearchText] = useState(null);
     const [selCat, setSelCat] = useState("All");
     const [searching, setSearching] = useState(true);
-
+    const [cart, setCart] = useState({
+        items: [],
+        total: 0
+      });
 
       //console.log(data);
     return (
@@ -40,7 +42,6 @@ export const DataProvider =  ( {children} ) => {
             categories, setCategories,
             userAddress, setUserAddress,
             login, setLogin,
-            cart, setCart,
             userName, setUserName,
             userInfo, setUserInfo,
             dashOption, setDashOption,
@@ -54,7 +55,8 @@ export const DataProvider =  ( {children} ) => {
             currentId, setCurrentId,
             searchText, setSearchText,
             selCat, setSelCat,
-            searching, setSearching
+            searching, setSearching,
+            cart, setCart
         }} >
             { children }
         </DataContext.Provider>

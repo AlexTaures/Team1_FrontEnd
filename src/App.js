@@ -8,7 +8,6 @@ import CartIcon from "./components/CartIcon";
 import Login from './components/Login';
 import DashboardAdmin from './components/DashboardAdmin';
 import ShoppingCart from './components/Shopping-cart/ShoppingCart';
-import ShoppingCarV2 from './components/Shopping-cart/ShoppingCarV2';
 
 function App() {
   
@@ -20,8 +19,6 @@ function App() {
         <SearchBar/>
         <NavLink to='/account' className='navlink'><LoginIcon/></NavLink>
         <NavLink to='/shopping' className='navlink'><CartIcon/></NavLink>
-        <NavLink to='/shopping2' className='navlink'><CartIcon/></NavLink>
-
         <NavLink to='/admin' className='navlink'><i className="fa-solid fa-laptop-code"></i><span> Admin</span></NavLink>
 
         
@@ -35,9 +32,7 @@ function App() {
           <Route exact path="/shopping" element={
               <ShoppingCart/>  
           }/>
-          <Route exact path="/shopping2" element={
-              <ShoppingCarV2/>  
-          }/>
+          
           <Route exact path="/admin" element={
               <DashboardAdmin/>    
           }/>
