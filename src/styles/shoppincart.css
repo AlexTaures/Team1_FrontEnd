@@ -1,6 +1,6 @@
 .productContainer{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-gap: 20px;
     justify-items: center;
 }
@@ -75,6 +75,7 @@
     background: lightblue;
     position: absolute;
     right: 0;
+    top: 25px;
 }
 
 .toggleButton{
@@ -95,6 +96,7 @@
     background: green;
     margin-left: 80%;
     margin-top: 60px;
+    border-radius: 15px;
 }
 
 .toggleButton:hover, .closeButton:hover{
