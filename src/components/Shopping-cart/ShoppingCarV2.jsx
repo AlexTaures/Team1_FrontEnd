@@ -12,6 +12,7 @@ export default function ShoppingCarV2() {
   const refAmount = useRef(null);
   const [prod, setProd] = useState(null);
   const { searchText, selCat, searching } = useContext(DataContext);
+  const [showSidebar, setShowSidebar] = useState(false);
   let filterCat = [];
   let filterText = [];
   //////////////////////////////////////////
@@ -125,13 +126,17 @@ export default function ShoppingCarV2() {
       amount: 1 });
   }
   /////////////////////////////
+  const toggleSidebar = (event) => {
+    event.preventDefault();
+    showSidebar? setShowSidebar(false):setShowSidebar(true);
+  }
 
   return (
     <>
-      <div className="container-fluid mt-4 text-center">
-        <h1>Shopping cart</h1>
+      <div className="cartMainContainer mt-4 text-center">
         
-        <div className="container d-flex">
+        
+        <div className="container d-flex relative">
         <div className="container-products-available mt-3 text-start">
           <h2>Products available</h2>
 
@@ -160,56 +165,56 @@ export default function ShoppingCarV2() {
             
           </div>
         </div>
-       
-        <div className="cartContainer">
-        <div className="container data-cost">
-          <p className="fs-4 col-xl-6 col-sm-10">Total products: {cart.items.length}</p>
-          <p className="fs-4 col-xl-6 col-sm-10">Total to pay: ${cart.total}</p>
-        </div>
-        <div className="container text-start mt-3">
-          <h3>Selected products</h3>
-
-          
-
-          <div className="scroll-bg">
-            <div className="scroll-div">
-              <div className="scroll-object">
-              <div className="cotainer mt-2 container-selected-products" id="selectedProducts">
-            <ul>
-              {cart.items.map((item, index) => (
-                <li key={index}>
-                  <div className="card" style={{ width: "15rem" }}>
-                    <img src="..." className="card-img-top" />
-                    <div className="card-body">
-                      <h5 className="card-title">{item.name}</h5>
-                      <p className="card-text">{item.description}.</p>
-                      <div className="cotainer amount-product aling-middle">
-                        <div className="container-xxl text-start">
-                          <p>Amount: {item.amount}</p>
-                          <p>Price: ${item.price}</p>
-                        </div>
-
-                        <input className="col-xl-4" type="number" min="1" value={item.quantity} onChange={(event) => updateItemQuantity(index, event.target.value)} ref={refAmount} />
-                      </div>
-                      <div className="container text-center mt-2">
-                        <button href="#" className="btn btn-primary" onClick={() => removeItemFromCart(index)}>Remove to cart</button>
-                      </div>
-
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-              </div>
-              </div>
-            </div>
-          </div>
-        </div>
-          
-        </div> 
+        
+        <div className="sidebar d-flex">
+        
         </div>
         
+        </div>
 
+        
+       {
+        showSidebar?
+        <div className="cartContainer">
+          <button className='closeButton' onClick={toggleSidebar  }>Close</button>
+          <div className="totalContainer d-flex text-end">
+            <div className="totalProducts d-flex">Total products: <p>{cart.items.length}</p></div>
+            <div className="totalPay d-flex">Total to pay: <p>${cart.total}</p></div>
+          </div>
+          <div className="container text-start mt-3">
+            <h3 className='text-end'>Selected products</h3>
+
+            <div className="scroll-bg">
+              <div className="scroll-div">
+                <div className="scroll-object">
+                <div className="container mt-2 container-selected-products" id="selectedProducts">
+                {cart.items.map((item, index) => (
+                    <div className="card" style={{ width: "15rem" }}>
+                      <div className="card-body">
+                        <h5 className="card-title">{item.name}</h5>
+                        <img src="..." className="card-img-top" />
+                        <p className="card-text">{item.description}.</p>
+                        <div className="cotainer amount-product aling-middle">
+                          <div className="container-xxl text-start">
+                            <p>Amount: <input className="col-xl-4" type="number" min="1" value={item.quantity} onChange={(event) => updateItemQuantity(index, event.target.value)} ref={refAmount} /></p>
+                            <p>Price: ${item.price}</p>
+                          </div>
+                        </div>
+                        <div className="container text-center mt-2">
+                          <button href="#" className="btn btn-primary" onClick={() => removeItemFromCart(index)}>Remove to cart</button>
+                        </div>
+
+                      </div>
+                    </div>
+                ))}
+                </div>
+                </div>
+              </div>
+              </div>
+          </div>
+          
+          </div>:<button className='toggleButton' onClick={toggleSidebar}>Shopping Cart</button>
+       }  
       </div>
     </>
   )
