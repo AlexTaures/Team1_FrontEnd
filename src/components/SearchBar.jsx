@@ -63,7 +63,7 @@ const searchListener = (event) => {
           }
           </select>
           <input type='text' placeholder='Tap something to search' ref={refText} onChange={typeText}/>
-          <button type='submit' onClick={searchListener}><Link to="/shopping2"><i className="fa-solid fa-magnifying-glass"></i></Link></button>
+          <button type='submit' onClick={searchListener}><Link to="/shopping"><i className="fa-solid fa-magnifying-glass"></i></Link></button>
         </div>
         
       </form>

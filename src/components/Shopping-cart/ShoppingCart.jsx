@@ -56,6 +56,28 @@ export default function ShoppingCart() {
   , [searching])
 //////end getting data ///////////////
 
+////sending data to database//////////////
+const payProducts = async () => {
+  try {
+    
+    const url = routes['sales'];
+    const body = {
+      brand_name: "something"
+    }
+    
+    await axios.post(url, body);
+    //alert('Admin Created');
+    //setDashOption(1);
+    window.location.reload(false);
+    
+    
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+
   //Item Control Section
   function addItemToCart(item) {
     const existingItemIndex = cart.items.findIndex(i => i.name === item.name);
@@ -172,7 +194,8 @@ export default function ShoppingCart() {
        {
         showSidebar?
         <div className="cartContainer">
-          <button className='closeButton' onClick={toggleSidebar  }>Close</button>
+          <button className='closeButton' onClick={toggleSidebar}>Close</button>
+          <button className='payButton' onClick={payProducts}>PayCart</button>
           <div className="totalContainer d-flex text-end">
             <div className="totalProducts d-flex">Total products: <p>{cart.items.length}</p></div>
             <div className="totalPay d-flex">Total to pay: <p>${cart.total}</p></div>
@@ -185,7 +208,7 @@ export default function ShoppingCart() {
                 <div className="scroll-object">
                 <div className="container mt-2 container-selected-products" id="selectedProducts">
                 {cart.items.map((item, index) => (
-                    <div className="card" style={{ width: "15rem" }}>
+                    <div className="card" style={{ width: "15rem" }} key={index}>
                       <div className="card-body">
                         <h5 className="card-title">{item.name}</h5>
                         <img src="..." className="card-img-top" />

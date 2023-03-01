@@ -1,6 +1,6 @@
 .productContainer{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
     justify-items: center;
 }
@@ -76,6 +76,10 @@
     position: absolute;
     right: 0;
     top: 25px;
+    text-align: right;
+    padding-right: 20px;
+    box-shadow: -25px -25px 15px rgba(255, 255, 255, 0.1),
+    -5px -5px 15px rgba(0,0,0,0.35);
 }
 
 .toggleButton{
@@ -97,6 +101,19 @@
     margin-left: 80%;
     margin-top: 60px;
     border-radius: 15px;
+}
+
+.payButton{
+    padding: 10px;
+    color: white;
+    background: rgb(71, 98, 107);
+    border-radius: 15px;
+    margin-top: 10px;  
+}
+
+.payButton:hover{
+    background: white;
+    color: black;
 }
 
 .toggleButton:hover, .closeButton:hover{
