@@ -5,11 +5,20 @@
     justify-items: center;
 }
 
-.productContainer .card:hover{
+.productContainer .card button:hover{
+    background: green;
+}
+
+.productContainer .card:hover, .scroll-object .card:hover{
     scale: 1.05;
     box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
     5px 5px 15px rgba(0,0,0,0.35);
     transition: 0.2s;
+}
+
+.cartMainContainer{
+    width: 100%;
+    display: flex;
 }
 
 .scroll-bg{
@@ -37,4 +46,75 @@
 
 .scroll-object{
     padding: 20px;
+}
+
+.scroll-object .card{
+    margin-bottom: 20px;
+}
+.scroll-object .card button:hover{
+    background: rgb(152, 2, 2);
+}
+
+.totalProducts p, .totalPay p{
+    margin: auto;
+    width: 20px;
+    padding-right: 20px;
+    font-weight: bold;
+}
+
+.totalProducts, .totalPay{
+    margin-left: 20px;
+}
+
+.totalContainer{
+    justify-content: end;
+    padding-right: 30px;
+}
+
+.cartContainer{
+    background: lightblue;
+    position: absolute;
+    right: 0;
+}
+
+.toggleButton{
+    background: green;
+    color: white;
+    font-weight: bold;
+    transform: rotate(90deg);
+    padding: 5px 15px 5px 15px;
+    scale: 1.2;
+    position: absolute;
+    right: 0;
+
+}
+
+.closeButton{
+    padding: 10px;
+    color: white;
+    background: green;
+    margin-left: 80%;
+    margin-top: 60px;
+}
+
+.toggleButton:hover, .closeButton:hover{
+    background: greenyellow;
+    color: green;
+}
+
+
+.sidebar{
+    position: absolute;
+    right: 0;
+    width: 0;
+    justify-content: end;
+    text-align: right;
+    padding: 0;
+}
+
+.container{
+    position: relative;
+}
+.container-fluid{
+    width: 100vh;
 }
