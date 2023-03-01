@@ -1,14 +1,64 @@
-import React, { useState, useRef } from 'react';
-import "../../styles/shoppincart.css"
+import axios from 'axios';
+import React, { useState, useRef, useEffect, useContext } from 'react';
+import "../../styles/shoppincart.css";
+import routes from "../../connection/BackendRoutes.json";
+import { DataContext } from '../../context/Datacontext';
 
 export default function ShoppingCarV2() {
-
   const [cart, setCart] = useState({
     items: [],
     total: 0
   });
   const refAmount = useRef(null);
+  const [prod, setProd] = useState(null);
+  const { searchText, selCat, searching } = useContext(DataContext);
+  let filterCat = [];
+  let filterText = [];
+  //////////////////////////////////////////
+  //Data fetching
+  const setProducts = async () =>{
 
+    try {
+      await axios.get(routes['products'])
+      .then(response => {
+
+
+        //Filtering the data
+        //filtering category
+        if(selCat === 'All'){
+          filterCat = response.data;
+        }else{
+          filterCat = response.data.filter(items => items.category_id == selCat);
+        }
+        //filtering text
+        if(searchText ===  null || searchText === ""){
+          filterText = filterCat;
+        }else{
+          filterText = filterCat.filter(items => (items.name.toLowerCase()).includes(searchText.toLowerCase()));
+        }
+
+        setProd(filterText);
+
+    
+        
+      });
+    
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    async function setData(){
+      await setProducts()
+    }
+    setData();
+    
+  }
+  , [searching])
+
+
+  //Item Control Section
   function addItemToCart(item) {
     const existingItemIndex = cart.items.findIndex(i => i.name === item.name);
     if (existingItemIndex >= 0) {
@@ -67,9 +117,14 @@ export default function ShoppingCarV2() {
     }
   }
 
-  function addProduct() {
-    addItemToCart({ name: 'Product Name', price: 10, amount: 1 });
+  function addProduct(event) {
+
+    addItemToCart({ 
+      name: event.target.getAttribute('name'), 
+      price: event.target.getAttribute('price'), 
+      amount: 1 });
   }
+  /////////////////////////////
 
   return (
     <>
@@ -113,50 +168,30 @@ export default function ShoppingCarV2() {
 
         <div className="container-products-available mt-3 text-start">
           <h2>Products available</h2>
-          <nav class="navbar navbar-expand-lg bg-body-tertiary col-xl-7">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">Search prodcts</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Seleccionar categoria
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Todos</a></li>
-                      <li><a class="dropdown-item" href="#">Category 1</a></li>
-                      <li><a class="dropdown-item" href="#">Category 2</a></li>
-                    </ul>
-                  </li>
-                </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-              </div>
-            </div>
-          </nav>
 
-          <div className="cotainer mt-2 container-selected-products">
-            <div className="card" style={{ width: "15rem" }}>
-              <img src="..." className="card-img-top" />
-              <div className="card-body">
-                <h5 className="card-title">Jabon Max</h5>
-                <p className="card-text">Jabon para ropa con olor a girasoles y a primavera.</p>
-                <div className="cotainer amount-product aling-middle">
-                  <div className="container-xxl text-start">
-                    <p>Price: </p>
+          <div className="productsContainer mt-2 container-selected-products">
+            
+              {
+                prod?
+                prod.map((opt, key) => 
+                <div className="card" key={key} style={{ width: "15rem" }}>
+                <img src="..." className="card-img-top" />
+                <div className="card-body">
+                  <h5 className="card-title">{opt.name}</h5>
+                  <p className="card-text">{opt.description}</p>
+                  <p className="card-text">Category Id: {opt.category_id}</p>
+                  <div className="cotainer amount-product aling-middle">
+                    <div className="container-xxl text-start">
+                      <p>Price: {opt.price}</p>
+                    </div>
                   </div>
-                </div>
-                <div className="container text-center mt-2">
-                  <button href="#" className="btn btn-primary" onClick={addProduct}>Add to cart</button>
-                </div>
+                  <div className="container text-center mt-2">
+                    <button href="#" className="btn btn-primary" onClick={addProduct} name={opt.name} price={opt.price}>Add to cart</button>
+                  </div>
 
-              </div>
-            </div>
+              </div></div>):<div>Searching Products</div>
+              }
+            
           </div>
         </div>
 

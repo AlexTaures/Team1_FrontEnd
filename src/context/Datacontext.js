@@ -28,7 +28,10 @@ export const DataProvider =  ( {children} ) => {
     const [dashAdmin, setDashAdmin] = useState([]);
     const [dashCat, setDashCat] = useState([]);
     const [currentId, setCurrentId] = useState(null);
-    
+    //For shopping cart
+    const [searchText, setSearchText] = useState(null);
+    const [selCat, setSelCat] = useState("All");
+    const [searching, setSearching] = useState(true);
 
 
       //console.log(data);
@@ -48,7 +51,10 @@ export const DataProvider =  ( {children} ) => {
             dashProd,setDashPro,
             dashAdmin,setDashAdmin,
             dashCat, setDashCat,
-            currentId, setCurrentId
+            currentId, setCurrentId,
+            searchText, setSearchText,
+            selCat, setSelCat,
+            searching, setSearching
         }} >
             { children }
         </DataContext.Provider>

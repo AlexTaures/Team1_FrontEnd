@@ -1,31 +1,69 @@
-import React, { useContext, useState } from 'react'
+import axios from 'axios';
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { DataContext } from '../context/Datacontext';
 import "../styles/SearchBar.css";
+import routes from "../connection/BackendRoutes.json";
+import { Link } from 'react-router-dom'
 
 export default function SearchBar() {
 //setting variables from DataContext
-const {categories, userAddress} = useContext(DataContext);
-const searchText = useState("");
+const { userAddress, setSearchText, setSelCat, setSearching, searching } = useContext(DataContext);
+const [cat, setCat] = useState([]);
+const refCat = useRef(null);  //We gonna use id instead category_name
+const refText = useRef(null);
 
-const search = (event) => {
-    event.preventDefault();
-    alert('The submit button is touched already')
-    
+
+
+const setCategories = async () =>{
+  try {
+    await axios.get(routes['categories'])
+    .then(response => {
+      setCat(response.data);
+    });
+  
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 
+
+useEffect(() => {
+  async function setData(){
+    await setCategories()
+  }
+  setData();
+}
+, [])
+
+const categorySelection =(event) => {
+  event.preventDefault();
+  setSelCat(refCat.current.value);
+}
+
+const typeText =(event) => {
+  event.preventDefault();
+  setSearchText(refText.current.value);
+}
+
+const searchListener = (event) => {
+  event.preventDefault();
+  searching? setSearching(false):setSearching(true);
+}
+
   return (
-    <form onSubmit={search} className='search_bar'>
+    <form className='search_bar'>
         <div className='user_address'>
         <i className="fa-solid fa-location-dot"></i> {userAddress}</div>
         <div className="search_input">
-          <select className='selectCategory'>
+          <select className='selectCategory' defaultValue="All" ref={refCat} onChange={categorySelection}>
+            <option>All</option>
           {
-            categories.map((opt, index)=><option key={index}>{opt}</option>)
+            cat.map((opt, key) => <option key={key} value={opt.id}>{opt.category_name}</option>)
           }
           </select>
-          <input type='text' placeholder='Tap something to search' />
-          <button type='submit'><i className="fa-solid fa-magnifying-glass"></i></button>
+          <input type='text' placeholder='Tap something to search' ref={refText} onChange={typeText}/>
+          <button type='submit' onClick={searchListener}><Link to="/shopping2"><i className="fa-solid fa-magnifying-glass"></i></Link></button>
         </div>
         
       </form>

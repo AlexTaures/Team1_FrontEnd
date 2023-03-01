@@ -26,13 +26,13 @@
   outline: none;
 }
 
-.search_input > button >i{
+.search_input  button i{
   width: 30px;
   color: gray;
   font-size: 1em;
 }
 
-.search_input > button >i:hover{
+.search_input  button i:hover{
   font-size: 1.5em;
   color: green;
   cursor: pointer;
