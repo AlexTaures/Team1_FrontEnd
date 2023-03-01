@@ -130,6 +130,38 @@ export default function ShoppingCarV2() {
     <>
       <div className="container-fluid mt-4 text-center">
         <h1>Shopping cart</h1>
+        
+        <div className="container d-flex">
+        <div className="container-products-available mt-3 text-start">
+          <h2>Products available</h2>
+
+          <div className="productContainer mt-2 container-selected-products">
+            
+              {
+                prod?
+                prod.map((opt, key) => 
+                <div className="card" key={key} style={{ width: "15rem" }}>
+                <img src="..." className="card-img-top" />
+                <div className="card-body">
+                  <h5 className="card-title">{opt.name}</h5>
+                  <p className="card-text">{opt.description}</p>
+                  <p className="card-text">Category Id: {opt.category_id}</p>
+                  <div className="cotainer amount-product aling-middle">
+                    <div className="container-xxl text-start">
+                      <p>Price: {opt.price}</p>
+                    </div>
+                  </div>
+                  <div className="container text-center mt-2">
+                    <button href="#" className="btn btn-primary" onClick={addProduct} name={opt.name} price={opt.price}>Add to cart</button>
+                  </div>
+
+              </div></div>):<div>Searching Products</div>
+              }
+            
+          </div>
+        </div>
+       
+        <div className="cartContainer">
         <div className="container data-cost">
           <p className="fs-4 col-xl-6 col-sm-10">Total products: {cart.items.length}</p>
           <p className="fs-4 col-xl-6 col-sm-10">Total to pay: ${cart.total}</p>
@@ -137,7 +169,12 @@ export default function ShoppingCarV2() {
         <div className="container text-start mt-3">
           <h3>Selected products</h3>
 
-          <div className="cotainer mt-2 container-selected-products">
+          
+
+          <div className="scroll-bg">
+            <div className="scroll-div">
+              <div className="scroll-object">
+              <div className="cotainer mt-2 container-selected-products" id="selectedProducts">
             <ul>
               {cart.items.map((item, index) => (
                 <li key={index}>
@@ -163,37 +200,15 @@ export default function ShoppingCarV2() {
                 </li>
               ))}
             </ul>
+              </div>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div className="container-products-available mt-3 text-start">
-          <h2>Products available</h2>
-
-          <div className="productsContainer mt-2 container-selected-products">
-            
-              {
-                prod?
-                prod.map((opt, key) => 
-                <div className="card" key={key} style={{ width: "15rem" }}>
-                <img src="..." className="card-img-top" />
-                <div className="card-body">
-                  <h5 className="card-title">{opt.name}</h5>
-                  <p className="card-text">{opt.description}</p>
-                  <p className="card-text">Category Id: {opt.category_id}</p>
-                  <div className="cotainer amount-product aling-middle">
-                    <div className="container-xxl text-start">
-                      <p>Price: {opt.price}</p>
-                    </div>
-                  </div>
-                  <div className="container text-center mt-2">
-                    <button href="#" className="btn btn-primary" onClick={addProduct} name={opt.name} price={opt.price}>Add to cart</button>
-                  </div>
-
-              </div></div>):<div>Searching Products</div>
-              }
-            
-          </div>
+          
+        </div> 
         </div>
+        
 
       </div>
     </>
