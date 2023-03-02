@@ -1,8 +1,6 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext } from 'react';
 import { DataContext } from '../../context/Datacontext';
 import '../../styles/Login.css';
-import axios from 'axios';
-import routes from '../../connection/BackendRoutes.json';
 
 export default function ActiveAccount() {
   const {setLogin, userInfo, userName, setUserName, setUserInfo, login } = useContext(DataContext);
@@ -22,27 +20,27 @@ export default function ActiveAccount() {
       <div className="generalContainer">
         <div className="subContainer">
         <div className="user_info_line">
-            <p>Username</p>
-            <p>{userName}</p>
+            <p className='tag'>Username</p>
+            <p className='info'>{userName}</p>
         </div>
         <div className="user_info_line">
-            <p>First Name</p>
-            <p>{userInfo['first_name']}</p>
+            <p className='tag'>First Name</p>
+            <p className='info'>{userInfo['first_name']}</p>
         </div>
         <div className="user_info_line">
-            <p>Last Name</p>
-            <p>{userInfo['last_name']}</p>
+            <p className='tag'>Last Name</p>
+            <p className='info'>{userInfo['last_name']}</p>
         </div> 
       </div>
   
       <div className="subContainer">
         <div className="user_info_line">
-            <p>Adress</p>
-            <p>{userInfo['address']}</p>
+            <p className='tag'>Adress</p>
+            <p className='info'>{userInfo['address']}</p>
         </div>
         <div className="user_info_line">
-            <p>Email</p>
-            <p>{userInfo['email']}</p>
+            <p className='tag'>Email</p>
+            <p className='info'>{userInfo['email']}</p>
         </div>
         <div className="button_container">
           <button>Edit Info</button>
@@ -54,9 +52,15 @@ export default function ActiveAccount() {
     )
   }else if(login == 3){
     return(
-      <div className='d-flex'>
-        <p>You are in Admin Account</p>
-        <button onClick={logOut}>Log Out</button>
+      <div className="generalContainer">
+        <div className="subContainer">
+        <div className="user_info_line">
+          You are in Admin Account
+        </div>
+        <div className="button_container">
+          <button onClick={logOut}>Log Out</button>
+        </div>
+      </div>
       </div>
     )
   }else{

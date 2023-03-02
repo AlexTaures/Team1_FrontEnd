@@ -154,22 +154,60 @@
 }
 
 /*ACTIVE ACOUNT STYLES***********************************************/
-
-.generalContainer, .user_info_line{
-  display: flex;
-}
-
 .generalContainer{
-  background: #d2c1c1;
+  justify-content: center;
+  background: white;
+  width: fit-content;
+  display: flex;
+  margin: auto;
+  margin-top: 30px;
+  padding: 50px;
+  border-radius: 25px;
   box-shadow: -5px -5px 15px rgba(255,255,255,0.1),
   5px 5px 5px rgba(0,0,0,0.35);
-  margin: 50px auto auto auto;
-  width: 50%;
-  text-align: center;
-  align-content: center;
-  padding: 100px;
 }
 
-.subContainer{
-  padding: 20px;
+.generalContainer .subContainer{
+  margin: auto;
+  width: fit-content;
+  
+}
+
+.generalContainer .subContainer .user_info_line{
+  width: 400px;
+  display: flex;
+  justify-content: start;
+}
+
+.generalContainer .subContainer .user_info_line .tag{
+  padding: 10px 15px 10px 15px;
+  background: rgb(99, 150, 137);
+  color: white;
+  border-radius: 25px;
+  margin-right: 20px;
+  box-shadow: -5px -5px 15px rgba(255,255,255,0.1),
+  5px 5px 5px rgba(0,0,0,0.35);
+}
+
+.generalContainer .subContainer .button_container{
+  display: flex;
+  justify-content: center;
+}
+
+.generalContainer .subContainer .button_container button{
+  padding: 10px 15px 10px 15px;
+  margin-left: 5px;
+  border-radius: 25px;
+  background: rgb(70, 108, 217);
+  color: white;
+  border: none;
+  box-shadow: -5px -5px 15px rgba(255,255,255,0.1),
+  5px 5px 5px rgba(0,0,0,0.35);
+  margin: auto;
+}
+
+.generalContainer .subContainer .button_container button:hover{
+  background: lightblue;
+  color: rgb(70, 108, 217);
+  margin: auto;
 }
