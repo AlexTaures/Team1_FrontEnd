@@ -8,6 +8,7 @@ import CartIcon from "./components/CartIcon";
 import Login from './components/Login';
 import DashboardAdmin from './components/DashboardAdmin';
 import ShoppingCart from './components/Shopping-cart/ShoppingCart';
+import AdminIcon from './components/AdminIcon';
 
 function App() {
   
@@ -18,8 +19,8 @@ function App() {
         <NavLink to='/' className='navlink'><img src={logo} alt='Not imagen found' className='logo' width='100px'></img></NavLink>
         <SearchBar/>
         <NavLink to='/account' className='navlink'><LoginIcon/></NavLink>
-        <NavLink to='/shopping' className='navlink'><CartIcon/></NavLink>
-        <NavLink to='/admin' className='navlink'><i className="fa-solid fa-laptop-code"></i><span> Admin</span></NavLink>
+        <CartIcon/>
+        <AdminIcon/>
 
         
       </div>

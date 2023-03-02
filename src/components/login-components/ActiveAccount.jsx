@@ -5,7 +5,7 @@ import axios from 'axios';
 import routes from '../../connection/BackendRoutes.json';
 
 export default function ActiveAccount() {
-  const {setLogin, userInfo, userName, setUserName, setUserInfo } = useContext(DataContext);
+  const {setLogin, userInfo, userName, setUserName, setUserInfo, login } = useContext(DataContext);
  
   
   
@@ -17,38 +17,49 @@ export default function ActiveAccount() {
 
   }
 
-  return (
-    <div className="generalContainer">
+  if(login == 2){
+    return (
+      <div className="generalContainer">
+        <div className="subContainer">
+        <div className="user_info_line">
+            <p>Username</p>
+            <p>{userName}</p>
+        </div>
+        <div className="user_info_line">
+            <p>First Name</p>
+            <p>{userInfo['first_name']}</p>
+        </div>
+        <div className="user_info_line">
+            <p>Last Name</p>
+            <p>{userInfo['last_name']}</p>
+        </div> 
+      </div>
+  
       <div className="subContainer">
-      <div className="user_info_line">
-          <p>Username</p>
-          <p>{userName}</p>
+        <div className="user_info_line">
+            <p>Adress</p>
+            <p>{userInfo['address']}</p>
+        </div>
+        <div className="user_info_line">
+            <p>Email</p>
+            <p>{userInfo['email']}</p>
+        </div>
+        <div className="button_container">
+          <button>Edit Info</button>
+          <button>Change Password</button>
+          <button onClick={logOut}>Log Out</button>
+        </div>
       </div>
-      <div className="user_info_line">
-          <p>First Name</p>
-          <p>{userInfo['first_name']}</p>
       </div>
-      <div className="user_info_line">
-          <p>Last Name</p>
-          <p>{userInfo['last_name']}</p>
-      </div> 
-    </div>
-
-    <div className="subContainer">
-      <div className="user_info_line">
-          <p>Adress</p>
-          <p>{userInfo['address']}</p>
-      </div>
-      <div className="user_info_line">
-          <p>Email</p>
-          <p>{userInfo['email']}</p>
-      </div>
-      <div className="button_container">
-        <button>Edit Info</button>
-        <button>Change Password</button>
+    )
+  }else if(login == 3){
+    return(
+      <div className='d-flex'>
+        <p>You are in Admin Account</p>
         <button onClick={logOut}>Log Out</button>
       </div>
-    </div>
-    </div>
-  )
+    )
+  }else{
+    <></>
+  }
 }

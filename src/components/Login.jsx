@@ -12,40 +12,8 @@ import ActiveAccount from './login-components/ActiveAccount';
 
 export default function Login() {
   //variables
-  const { login, setLogin, setUserName } = useContext(DataContext);
-  const refUserName = useRef(null);
-  const refEmail = useRef(null);
-  const refPass = useRef(null);
-  const refConfPass = useRef(null);
-  const refUserNameLog = useRef(null);
-  const refPassLog = useRef(null);
-  let [message, setMessage] = useState('');
-  let [userData, setUserData] = useState([]);
-
-
-  //for singup-----------------------------------------------------
+  const { login } = useContext(DataContext);
   
-
-  //for singin-------------------------------------------------------
-  /////////////////////////////////////////////////////////////////////
-  
-
-  //Account parameters
- 
-
-  
-  //logMode switch 
-  const logMode = (event) => {
-    event.preventDefault();
-    if(login===0){
-      setLogin(1);
-      setMessage("");
-    }else if(login === 1)  {
-      setLogin(0);
-      setMessage("");
-    }
-  }
-
 
   if(login === 1){
     return(

@@ -9,11 +9,10 @@ export default function SingIn() {
   const refUserNameLog = useRef(null);
   const refPassLog = useRef(null);
   let [message, setMessage] = useState('');
-  //let [userData, setUserData] = useState([]);
 
-  const fetchCustomers = async () => {
+  const fetchCustomers = () => {
     try {
-      await axios.get(routes['customers'])
+      axios.get(routes['customers'])
       .then(response => {
         //i is the index for array into the object fetched
         const i = response.data.findIndex( (element) => element.user_name === refUserNameLog.current.value);
@@ -43,11 +42,39 @@ export default function SingIn() {
     }
   }
 
+  const fetchUsers = async () => {
+    try {
+      await axios.get(routes['admins'])
+      .then(response => {
+        //i is the index for array into the object fetched
+        const i = response.data.findIndex( (element) => element.user_name === refUserNameLog.current.value);
+        
+        if(i===-1){
+          //////////////////////
+          fetchCustomers();
+          ///////////////////////
+        }else if(response.data[i].password !== refPassLog.current.value){
+          setMessage("The password for this username is incorrect");
+        }else{
+          setUserName(response.data[i].user_name);
+          setMessage("");
+          setLogin(3);
+          response = true;
+        }
+      });
 
-  const SingIn = async (event) => {
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  
+
+
+  const SingIn = async (event) => { //We can use async in every function to call another one
     event.preventDefault();
     setMessage("");
-    await fetchCustomers();
+    await fetchUsers();
   }
 
   const logMode = (event) => {
