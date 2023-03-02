@@ -8,8 +8,8 @@ export default function Dashboard() {
  const { dashCustomers, dashSales, dashBrands, dashPres, dashProd, dashCat} = useContext(DataContext);
 
   return (
-    <div className='mainContainer d-flex'>
-      <div className="subContainer text-start">
+    <div className='mainContainer'>
+      <div className="subContainer">
             <div className="line d-flex">
               <h5 className='line-name'><i className="fa-solid fa-code"></i>  Current Administrator</h5>
               <h5 className='line-data'>{userName}</h5>

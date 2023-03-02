@@ -12,8 +12,8 @@ export default function ViewBrands() {
   }
 
   return (
-    <div className='mainContainer d-flex'>
-      <div className="subContainer text-start">
+    <div className='mainContainer'>
+      <div className="subContainer">
           <table>
             <thead>
               <tr>

@@ -5,8 +5,8 @@ export default function ViewSales() {
   const { dashSales } = useContext(DataContext);
 
   return (
-    <div className='mainContainer d-flex' id='weightView'>
-      <div className="subContainer text-start">
+    <div className='mainContainer' id='productTable'>
+      <div className="subContainer">
           <table className='weight_tab'>
             <tr>
               <th><h5 className='line-name'>id</h5></th>

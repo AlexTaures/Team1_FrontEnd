@@ -14,7 +14,7 @@ export default function ViewProducts() {
   }
 
   return (
-    <div className='mainContainer d-flex' id='weightView'>
+    <div className='mainContainer' id='weightView'>
       <div className="subContainer text-start">
           <table className='weight_tab'>
             <thead>

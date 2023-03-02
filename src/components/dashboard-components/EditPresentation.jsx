@@ -32,8 +32,8 @@ export default function EditPresentation(props) {
     setDashOption(10);
   }
   return (
-    <div className='mainContainer d-flex'>
-        <div className="subContainer text-start">
+    <div className='mainContainer'>
+        <div className="subContainer">
           <div className="line d-flex">
               <h5 className='line-name'>Presentation Name</h5>
               <input type="text" className='line-input' ref={refPresentation} defaultValue={props.presentation_type} required/>

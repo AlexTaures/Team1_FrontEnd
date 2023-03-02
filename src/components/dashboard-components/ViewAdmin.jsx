@@ -4,8 +4,8 @@ import { DataContext } from '../../context/Datacontext';
 export default function ViewAdmin() {
   const { dashAdmin } = useContext(DataContext);
   return (
-    <div className='mainContainer d-flex'>
-      <div className="subContainer text-start">
+    <div className='mainContainer'>
+      <div className="subContainer">
           <table>
             <tr>
               <th><h5 className='line-name'>id</h5></th>

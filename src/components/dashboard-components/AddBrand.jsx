@@ -33,8 +33,8 @@ export default function AddBrand() {
     }
 
   return (
-    <div className='mainContainer d-flex'>
-        <div className="subContainer text-start">
+    <div className='mainContainer'>
+        <div className="subContainer">
           <div className="line d-flex">
               <h5 className='line-name'>Brand Name</h5>
               <input type="text" className='line-input' ref={refBrandName}/>

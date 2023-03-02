@@ -10,8 +10,8 @@ export default function DashboardAdmin() {
     return (
         <>
             <FetchData/>
-            <div id="wrapper">
-                <Sidebar />
+            <Sidebar />
+            <div className="dashboardContainer">
                 <PrincipalContainer/>
             </div>
 

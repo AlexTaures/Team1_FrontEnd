@@ -25,98 +25,98 @@ export default function PrincipalContainer() {
 
  if(dashOption === 0){
   return(
-    <div className="dash-principal-container pt-4 ps-4">
+    <div className="currentSection">
       <h2>Searching data...</h2>
       <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     </div>
   )
  }else if(dashOption === 1){
   return(
-    <div className="dash-principal-container pt-4 ps-4">
+    <div className="currentSection">
       <h2>Dashboard</h2>
       <Dashboard />
     </div>
   )
  }else if(dashOption === 2){
   return(
-    <div className="dash-principal-container pt-4 ps-4">
+    <div className="currentSection">
       <h2>Add User Admin</h2>
       <AddAdmin/>
     </div>
   ) 
 }else if(dashOption === 3){
   return(
-    <div className="dash-principal-container pt-4 ps-4">
+    <div className="currentSection">
       <h2>Add Products</h2>
       <AddProducts />
     </div>
   ) 
 }else if(dashOption === 4){
   return(
-    <div className="dash-principal-container pt-4 ps-4">
+    <div className="currentSection">
       <h2>Add Category</h2>
       <AddCategory />
     </div>
   ) 
 }else if(dashOption === 5){
   return(
-    <div className="dash-principal-container pt-4 ps-4">
+    <div className="currentSection">
       <h2>Add Presentation</h2>
       <AddPresentation />
     </div>
   ) 
 }else if(dashOption === 6){
   return(
-    <div className="dash-principal-container pt-4 ps-4">
+    <div className="currentSection">
       <h2>Add Brand</h2>
       <AddBrand />
     </div>
   ) 
 }else if(dashOption === 7){
   return(
-    <div className="dash-principal-container pt-4 ps-4">
+    <div className="currentSection">
       <h2>User Administrators</h2>
       <ViewAdmin />
     </div>
   ) 
 }else if(dashOption === 8){
   return(
-    <div className="dash-principal-container pt-4 ps-4">
+    <div className="currentSection">
       <h2>Products</h2>
       <ViewProducts/>
     </div>
   ) 
 }else if(dashOption === 9){
   return(
-    <div className="dash-principal-container pt-4 ps-4">
+    <div className="currentSection">
       <h2>Categories</h2>
       <ViewCategory />
     </div>
   ) 
 }else if(dashOption === 10){
   return(
-    <div className="dash-principal-container pt-4 ps-4">
+    <div className="currentSection">
       <h2>Presentations</h2>
       <ViewPresentations/>
     </div>
   ) 
 }else if(dashOption === 11){
   return(
-    <div className="dash-principal-container pt-4 ps-4">
+    <div className="currentSection">
       <h2>Brands</h2>
       <ViewBrands/>
     </div>
   ) 
 }else if(dashOption === 12){
   return(
-    <div className="dash-principal-container pt-4 ps-4">
+    <div className="currentSection">
       <h2>Sales</h2>
       <ViewSales/>
     </div>
   ) 
 }else if(dashOption === 13){
   return(
-    <div className="dash-principal-container pt-4 ps-4">
+    <div className="currentSection">
       <h2>Edit Product id = {dashProd[dashProd.findIndex((element) => element.id == currentId)].id}</h2>
       <EditProducts 
           id = {currentId}
@@ -141,7 +141,7 @@ export default function PrincipalContainer() {
   ) 
 }else if(dashOption === 14){
   return(
-    <div className="dash-principal-container pt-4 ps-4">
+    <div className="currentSection">
       <h2>Edit Category id = {currentId}</h2>
       <EditCategory 
         id = {currentId}
@@ -151,7 +151,7 @@ export default function PrincipalContainer() {
   ) 
 }else if(dashOption === 15){
   return(
-    <div className="dash-principal-container pt-4 ps-4">
+    <div className="currentSection">
       <h2>Edit Presentation id = {currentId}</h2>
       <EditPresentation 
         id = {currentId}
@@ -161,7 +161,7 @@ export default function PrincipalContainer() {
   ) 
 }else if(dashOption === 16){
   return(
-    <div className="dash-principal-container pt-4 ps-4">
+    <div className="currentSection">
       <h2>Edit Brand id = {currentId}</h2>
       <EditBrand
         id = {currentId}
