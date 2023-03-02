@@ -104,7 +104,7 @@
 }
 
 .payButton{
-    padding: 10px;
+    padding: 10px 0 10px 0;
     color: white;
     background: rgb(71, 98, 107);
     border-radius: 15px;
@@ -113,6 +113,16 @@
 
 .payButton:hover{
     background: white;
+    color: black;
+}
+
+.payButton .link{
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.payButton .link:hover{
     color: black;
 }
 

@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect, useContext } from 'react';
 import "../../styles/shoppincart.css";
 import routes from "../../connection/BackendRoutes.json";
 import { DataContext } from '../../context/Datacontext';
+import { Link } from 'react-router-dom';
 
 export default function ShoppingCart() {
   const refAmount = useRef(null);
@@ -14,6 +15,7 @@ export default function ShoppingCart() {
   let filterText = [];
   //////////////////////////////////////////
   //Data fetching
+
   const setProducts = async () =>{
 
     try {
@@ -56,25 +58,7 @@ export default function ShoppingCart() {
   , [searching])
 //////end getting data ///////////////
 
-////sending data to database//////////////
-const payProducts = async () => {
-  try {
-    
-    const url = routes['sales'];
-    const body = {
-      brand_name: "something"
-    }
-    
-    await axios.post(url, body);
-    //alert('Admin Created');
-    //setDashOption(1);
-    window.location.reload(false);
-    
-    
-  } catch (error) {
-    console.log(error);
-  }
-}
+
 
 
 
@@ -196,7 +180,7 @@ const payProducts = async () => {
         showSidebar && login == 2?
         <div className="cartContainer">
           <button className='closeButton' onClick={toggleSidebar}>Close</button>
-          <button className='payButton' onClick={payProducts}>PayCart</button>
+          <button className='payButton'><Link to="/paycart" className='link'>PayCart</Link></button>
           <div className="totalContainer d-flex text-end">
             <div className="totalProducts d-flex">Total products: <p>{cart.items.length}</p></div>
             <div className="totalPay d-flex">Total to pay: <p>${cart.total}</p></div>
@@ -216,7 +200,7 @@ const payProducts = async () => {
                         <p className="card-text">{item.description}.</p>
                         <div className="cotainer amount-product aling-middle">
                           <div className="container-xxl text-start">
-                            <p>Amount: <input className="col-xl-4" type="number" min="1" value={item.quantity} onChange={(event) => updateItemQuantity(index, event.target.value)} ref={refAmount} /></p>
+                            <p>Amount: <input className="col-xl-4" type="number" min="1" defaultValue={item.amount} onChange={(event) => updateItemQuantity(index, event.target.value)} ref={refAmount} /></p>
                             <p>Price: ${item.price}</p>
                           </div>
                         </div>
