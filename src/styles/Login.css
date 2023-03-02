@@ -165,6 +165,7 @@
   border-radius: 25px;
   box-shadow: -5px -5px 15px rgba(255,255,255,0.1),
   5px 5px 5px rgba(0,0,0,0.35);
+  text-align: center;
 }
 
 .generalContainer .subContainer{
@@ -183,6 +184,7 @@
   padding: 10px 15px 10px 15px;
   background: rgb(99, 150, 137);
   color: white;
+  width: 180px;
   border-radius: 25px;
   margin-right: 20px;
   box-shadow: -5px -5px 15px rgba(255,255,255,0.1),
@@ -210,4 +212,28 @@
   background: lightblue;
   color: rgb(70, 108, 217);
   margin: auto;
+}
+
+.generalContainer .subContainer .button_container .cancelButton{
+  background: orangered;
+}
+
+.generalContainer .subContainer .button_container .cancelButton:hover{
+  background: white;
+  color: orangered;
+}
+
+.generalContainer .subContainer .user_info_line input{
+  border-radius: 25px;
+  padding: 10px 15px 10px 15px;
+}
+
+.generalContainer .subContainer .user_info_line input:hover,
+.generalContainer .subContainer .user_info_line input:focus{
+  box-shadow: -5px -5px 15px rgba(255,255,255,0.1),
+  5px 5px 5px rgba(0,0,0,0.35);
+}
+
+.generalContainer .subContainer .message{
+  color: rgb(142, 7, 7);
 }

@@ -24,10 +24,13 @@ export default function SingIn() {
         }else{
           setUserName(response.data[i].user_name);
           setUserInfo({
+            "id": response.data[i].id,
             "first_name":response.data[i].first_name,
             "last_name":response.data[i].last_name,
             "address":response.data[i].address,
-            "email": response.data[i].email
+            "email": response.data[i].email,
+            "user_name": response.data[i].user_name,
+            "password": response.data[i].password
         });
           setMessage("");
           setLogin(2);
