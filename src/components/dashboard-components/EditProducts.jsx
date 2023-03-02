@@ -10,6 +10,7 @@ export default function EditProducts(props) {
   const refPrice = useRef(null);
   const refAddDate = useRef(null);
   const refExpDate = useRef(null);
+  const refImgURL = useRef(null);
   const refBrandId = useRef(null);
   const refPresId = useRef(null);
   const refCatId = useRef(null);
@@ -36,6 +37,7 @@ export default function EditProducts(props) {
         "price": refPrice.current.value,
         "admission_date": refAddDate.current.value,
         "expiration_date": refExpDate.current.value,
+        "img_url": refImgURL.current.value,
         "brand_id": brandId,
         "presentation_id": presId,
         "category_id": catId
@@ -84,6 +86,10 @@ export default function EditProducts(props) {
           <div className="line d-flex">
               <h5 className='line-name'>Expiration Date</h5>
               <input type="date" className='line-input' ref={refExpDate} defaultValue={props.expiration_date}/>
+          </div>
+          <div className="line d-flex">
+              <h5 className='line-name'>Image URL</h5>
+              <input type="text" className='line-input' ref={refImgURL} defaultValue={props.img_url}/>
           </div>
           <div className="line d-flex">
               <h5 className='line-name'>Brand</h5>

@@ -126,6 +126,7 @@ export default function PrincipalContainer() {
           price={dashProd[dashProd.findIndex((element) => element.id == currentId)].price}
           admission_date={dashProd[dashProd.findIndex((element) => element.id == currentId)].admission_date}
           expiration_date={dashProd[dashProd.findIndex((element) => element.id == currentId)].expiration_date}
+          img_url={dashProd[dashProd.findIndex((element) => element.id == currentId)].img_url}
           brand={dashBrands[
             dashBrands.findIndex((element)=>element.id == dashProd[dashProd.findIndex((element) => element.id == currentId)].brand_id)
           ].brand_name}
