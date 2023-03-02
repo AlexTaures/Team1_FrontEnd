@@ -9,6 +9,7 @@ import Login from './components/Login';
 import DashboardAdmin from './components/DashboardAdmin';
 import ShoppingCart from './components/Shopping-cart/ShoppingCart';
 import AdminIcon from './components/AdminIcon';
+import Menu from './components/Menu'
 
 function App() {
   
@@ -39,7 +40,7 @@ function App() {
           }/>
 
           <Route exact path="/" element={
-              <div>Home page component</div>
+              <Menu/>
           }/>
 
 
