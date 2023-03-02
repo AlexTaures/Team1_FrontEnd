@@ -15,7 +15,7 @@ export default function AddProducts() {
   const refBrandId = useRef(null);
   const refPresId = useRef(null);
   const refCatId = useRef(null);
-  const { dashProd, dashBrands, dashPres, dashCat } = useContext(DataContext);
+  const { dashProd, dashBrands, dashPres, dashCat, setUpdating, updating } = useContext(DataContext);
   let [message, setMessage] = useState('');
 
   
@@ -51,7 +51,7 @@ export default function AddProducts() {
       await axios.post(url, body);
       //alert('Admin Created');
       //setDashOption(1);
-      window.location.reload(false);
+      updating? setUpdating(false):setUpdating(true);
       }
       
     } catch (error) {

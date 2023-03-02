@@ -5,11 +5,12 @@ import routes from '../../connection/BackendRoutes.json';
 
 export default function FetchData() {
 
-  const { setDashCustomers, setDashSales, setDashBrands, setDashPres, setDashPro, setDashAdmin, setDashCat, setDashOption } = useContext(DataContext);
+  const { setDashCustomers, setDashSales, setDashBrands, setDashPres, setDashPro, setDashAdmin, setDashCat, setDashOption, updating} = useContext(DataContext);
 
   const fetchData = async () => {
     let charging = 0;
     let routesLen = Object.keys(routes).length;
+    setDashOption(0);
     try {
       await axios.get(routes['customers'])
       .then(response => {
@@ -100,7 +101,7 @@ export default function FetchData() {
     }
     setList();
   }
-  , [])
+  , [updating])
   return (
     <></>
   )

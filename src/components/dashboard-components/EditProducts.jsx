@@ -14,7 +14,7 @@ export default function EditProducts(props) {
   const refBrandId = useRef(null);
   const refPresId = useRef(null);
   const refCatId = useRef(null);
-  const { dashBrands, dashPres, dashCat, setDashOption } = useContext(DataContext);
+  const { dashBrands, dashPres, dashCat, setDashOption, setUpdating, updating } = useContext(DataContext);
   let [message, setMessage] = useState('');
 
 
@@ -46,8 +46,7 @@ export default function EditProducts(props) {
       await axios.put(url, body);
       //alert('Admin Created');
       //setDashOption(1);
-      window.location.reload(false);
-      
+      updating? setUpdating(false):setUpdating(true);
       
     } catch (error) {
       console.log(error);

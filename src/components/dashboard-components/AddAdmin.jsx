@@ -6,7 +6,7 @@ import { DataContext } from '../../context/Datacontext';
 export default function AddAdmin() {
   const refAdminName = useRef(null);
   const refPassword = useRef(null);
-  const { dashAdmin } = useContext(DataContext);
+  const { dashAdmin, setUpdating, updating } = useContext(DataContext);
   let [message, setMessage] = useState('');
 
 
@@ -28,7 +28,7 @@ export default function AddAdmin() {
       await axios.post(url, body);
       //alert('Admin Created');
       //setDashOption(1);
-      window.location.reload(false);
+      updating? setUpdating(false):setUpdating(true);
       }
       
     } catch (error) {
@@ -40,7 +40,7 @@ export default function AddAdmin() {
     <div className='mainContainer'>
         <div className="subContainer">
           <div className="line d-flex">
-              <h5 className='line-name'>Admin Username</h5>
+              <h5 className='line-name'>Username</h5>
               <input type="text" className='line-input' ref={refAdminName}/>
           </div>
           <div className="line d-flex">

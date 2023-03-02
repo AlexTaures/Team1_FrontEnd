@@ -27,6 +27,7 @@ export const DataProvider =  ( {children} ) => {
     const [dashAdmin, setDashAdmin] = useState([]);
     const [dashCat, setDashCat] = useState([]);
     const [currentId, setCurrentId] = useState(null);
+    const [updating, setUpdating] = useState(true);
     //For shopping cart
     const [searchText, setSearchText] = useState(null);
     const [selCat, setSelCat] = useState("All");
@@ -53,6 +54,7 @@ export const DataProvider =  ( {children} ) => {
             dashAdmin,setDashAdmin,
             dashCat, setDashCat,
             currentId, setCurrentId,
+            updating, setUpdating,
             searchText, setSearchText,
             selCat, setSelCat,
             searching, setSearching,

@@ -142,6 +142,7 @@ const payProducts = async () => {
     addItemToCart({ 
       name: event.target.getAttribute('name'), 
       price: event.target.getAttribute('price'), 
+      img_url: event.target.getAttribute('img_url'),
       amount: 1 });
   }
   /////////////////////////////
@@ -165,7 +166,7 @@ const payProducts = async () => {
                 prod?
                 prod.map((opt, key) => 
                 <div className="card" key={key} style={{ width: "15rem" }}>
-                <img src="..." className="card-img-top" />
+                <img src={opt.img_url} className="card-img-top" />
                 <div className="card-body">
                   <h5 className="card-title">{opt.name}</h5>
                   <p className="card-text">{opt.description}</p>
@@ -175,7 +176,7 @@ const payProducts = async () => {
                     </div>
                   </div>
                   <div className="container text-center mt-2">
-                    <button href="#" className="btn btn-primary" onClick={addProduct} name={opt.name} price={opt.price}>Add to cart</button>
+                    <button href="#" className="btn btn-primary" onClick={addProduct} name={opt.name} price={opt.price} img_url={opt.img_url}>Add to cart</button>
                   </div>
 
               </div></div>):<div>Searching Products</div>
@@ -211,7 +212,7 @@ const payProducts = async () => {
                     <div className="card" style={{ width: "15rem" }} key={index}>
                       <div className="card-body">
                         <h5 className="card-title">{item.name}</h5>
-                        <img src="..." className="card-img-top" />
+                        <img src={item.img_url} alt='image not found' className="card-img-top" />
                         <p className="card-text">{item.description}.</p>
                         <div className="cotainer amount-product aling-middle">
                           <div className="container-xxl text-start">
@@ -234,7 +235,8 @@ const payProducts = async () => {
           
           </div>:<button className='toggleButton' onClick={toggleSidebar}>
             {
-              login == 2? "Shopping Cart":"Login First"
+              login== 0? "Login First":
+              login == 2? "Shopping Cart":"Admin View"
             }
             </button>
        }  

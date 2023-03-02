@@ -5,7 +5,7 @@ import { DataContext } from '../../context/Datacontext';
 
 export default function EditCategory(props) {
   const refCatName = useRef(null);
-  const { setDashOption } = useContext(DataContext);
+  const { setDashOption,setUpdating, updating } = useContext(DataContext);
   let [message, setMessage] = useState('');
 
   const saveCategory = async () => {
@@ -19,8 +19,7 @@ export default function EditCategory(props) {
       await axios.put(url, body);
       //alert('Admin Created');
       //setDashOption(1);
-      window.location.reload(false);
-      
+      updating? setUpdating(false):setUpdating(true);
       
     } catch (error) {
       setMessage('Something is wrong in the fields or database connection');

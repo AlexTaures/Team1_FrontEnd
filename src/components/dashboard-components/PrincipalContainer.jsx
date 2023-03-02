@@ -83,7 +83,9 @@ export default function PrincipalContainer() {
   return(
     <div className="currentSection">
       <h2>Products</h2>
-      <ViewProducts/>
+      <div id='productTable'>
+        <ViewProducts/>
+      </div>
     </div>
   ) 
 }else if(dashOption === 9){

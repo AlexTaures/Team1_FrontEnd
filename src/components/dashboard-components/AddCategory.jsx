@@ -5,7 +5,7 @@ import { DataContext } from '../../context/Datacontext';
 
 export default function AddCategory() {
   const refCatName = useRef(null);
-  const { dashCat } = useContext(DataContext);
+  const { dashCat, setUpdating, updating } = useContext(DataContext);
   let [message, setMessage] = useState('');
 
   const CreateCategory = async () => {
@@ -24,7 +24,7 @@ export default function AddCategory() {
       await axios.post(url, body);
       //alert('Admin Created');
       //setDashOption(1);
-      window.location.reload(false);
+      updating? setUpdating(false):setUpdating(true);
       }
       
     } catch (error) {

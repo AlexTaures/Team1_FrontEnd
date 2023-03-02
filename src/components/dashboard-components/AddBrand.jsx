@@ -5,7 +5,7 @@ import { DataContext } from '../../context/Datacontext';
 
 export default function AddBrand() {
     const refBrandName = useRef(null);
-    const { dashBrands } = useContext(DataContext);
+    const { dashBrands, setUpdating, updating } = useContext(DataContext);
     let [message, setMessage] = useState('');
 
     const CreateBrand = async () => {
@@ -24,7 +24,7 @@ export default function AddBrand() {
         await axios.post(url, body);
         //alert('Admin Created');
         //setDashOption(1);
-        window.location.reload(false);
+        updating? setUpdating(false):setUpdating(true);
         }
         
       } catch (error) {

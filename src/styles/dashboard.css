@@ -1,9 +1,6 @@
+/*DISTRIBUTION*/
 .sidebar{
   left: 0;
-}
-
-.dashboardContainer{
-  margin: 20px 20px 20px 245px;
 }
 
 .currentSection{
@@ -11,18 +8,157 @@
 }
 .currentSection .mainContainer{
   display: flex;
-  justify-content: center;
-  align-content: center;
+  margin: auto;
   width: fit-content;
   background: white;
   border-radius: 25px;
   box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
   5px 5px 15px rgba(0,0,0,0.35);
+  margin-top: 20px;
 }
+
 
 .currentSection .mainContainer .subContainer{
   margin: auto;
+  text-align: center;
 }
+
+@media screen and (max-width: 700px) { 
+  #productTable{
+    display: none;
+
+  }
+  .dashboardContainer{
+    margin: 20px 20px 20px 25%;
+  }
+}
+
+@media screen and (min-width: 700px) { 
+  #productTable{
+    scale: 0.5;
+  }
+  .currentSection h2{
+    margin-top: 50px;
+    margin-left: 20%;
+  }
+}
+
+@media screen and (min-width: 770px) { 
+  #productTable{
+    scale: 0.4;
+  }
+  .currentSection h2{
+    margin-left: 35%;
+  }
+}
+
+@media screen and (min-width: 900px) { 
+  #productTable{
+    scale: 0.5;
+  }
+  .currentSection h2{
+    margin-left: 25%;
+  }
+}
+
+@media screen and (min-width: 1200px) { 
+  #productTable{
+    scale: 0.7;
+  }
+  .currentSection h2{
+    margin-left: 20%;
+  }
+}
+
+@media screen and (min-width: 1500px) { 
+  #productTable{
+    scale: 0.9;
+  }
+}
+
+@media screen and (min-width: 1600px) { 
+  #productTable{
+    scale: 0.9  ;
+  }
+}
+
+/* Labels and colors */
+.line{
+  text-align: left;
+  width: 400px;
+}
+.line-name{
+  margin: 5 5px 5 5px;
+  background: rgb(70, 108, 217);
+  color: white;
+  padding: 10px 15px 10px 15px;
+  border-radius: 15px;
+  width: 350px;
+  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
+  5px 5px 15px rgba(0,0,0,0.35);
+}
+
+#productTable .line-name{
+  width: fit-content;
+}
+
+.line-data{
+  width: 40px;
+  margin-left: 20px;
+}
+
+.line-input{
+  margin-left: 10px;
+  width: 350px;
+  padding: 10px 15px 10px 15px;
+  border-radius: 15px;
+  border: solid gray 1px;
+}
+
+.line-input:focus{
+  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
+  5px 5px 15px rgba(0,0,0,0.35);
+}
+
+/****buttons ***/
+.nav-item:hover{
+  cursor: pointer;
+}
+
+
+
+
+.currentSection .mainContainer .subContainer button{
+  background: green;
+  color: white;
+  padding: 10px 15px 10px 15px;
+  border: none;
+  border-radius: 25px;
+  width: 100px;
+  margin: auto;
+  margin-top: 20px;
+ 
+}
+
+.currentSection .mainContainer .subContainer button:hover{
+  background: greenyellow;
+  color: green;
+  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
+  5px 5px 15px rgba(0,0,0,0.35);
+}
+
+.currentSection .mainContainer .subContainer .cancel{
+  background: rgb(140, 1, 1);
+  margin-left: 20px;
+}
+
+.currentSection .mainContainer .subContainer .cancel:hover{
+  background: yellow;
+  color: rgb(140, 1, 1);
+  
+}
+
+
 
 
 /*************ROLER SEARCHING DATA*/
@@ -43,7 +179,7 @@
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: gray;
+    background: white;
     margin: -4px 0 0 -4px;
   }
   .lds-roller div:nth-child(1) {

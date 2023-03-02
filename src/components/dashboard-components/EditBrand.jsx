@@ -5,7 +5,7 @@ import { DataContext } from '../../context/Datacontext';
 
 export default function EditBrand(props) {
     const refBrandName = useRef(null);
-    const { setDashOption } = useContext(DataContext);
+    const { setDashOption, setUpdating, updating } = useContext(DataContext);
     let [message, setMessage] = useState('');
 
     const saveBrand = async () => {
@@ -19,9 +19,8 @@ export default function EditBrand(props) {
         await axios.put(url, body);
         //alert('Admin Created');
         //setDashOption(1);
-        window.location.reload(false);
         
-        
+        updating? setUpdating(false):setUpdating(true);
       } catch (error) {
         setMessage('Something is wrong in the fields or database connection');
       }

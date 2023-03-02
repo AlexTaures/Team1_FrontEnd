@@ -5,7 +5,7 @@ import { DataContext } from '../../context/Datacontext';
 
 export default function AddPresentation() {
   const refPresentation = useRef(null);
-  const { dashPres } = useContext(DataContext);
+  const { dashPres, setUpdating, updating } = useContext(DataContext);
   let [message, setMessage] = useState('');
 
   const CreatePresentation = async () => {
@@ -24,7 +24,7 @@ export default function AddPresentation() {
       await axios.post(url, body);
       //alert('Admin Created');
       //setDashOption(1);
-      window.location.reload(false);
+      updating? setUpdating(false):setUpdating(true);
       }
       
     } catch (error) {
