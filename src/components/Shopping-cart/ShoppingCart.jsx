@@ -7,7 +7,7 @@ import { DataContext } from '../../context/Datacontext';
 export default function ShoppingCart() {
   const refAmount = useRef(null);
   const [prod, setProd] = useState(null);
-  const { searchText, selCat, searching } = useContext(DataContext);
+  const { searchText, selCat, searching, login} = useContext(DataContext);
   const { cart, setCart } = useContext(DataContext);
   const [showSidebar, setShowSidebar] = useState(false);
   let filterCat = [];
@@ -192,7 +192,7 @@ const payProducts = async () => {
 
         
        {
-        showSidebar?
+        showSidebar && login == 2?
         <div className="cartContainer">
           <button className='closeButton' onClick={toggleSidebar}>Close</button>
           <button className='payButton' onClick={payProducts}>PayCart</button>
@@ -232,7 +232,11 @@ const payProducts = async () => {
               </div>
           </div>
           
-          </div>:<button className='toggleButton' onClick={toggleSidebar}>Shopping Cart</button>
+          </div>:<button className='toggleButton' onClick={toggleSidebar}>
+            {
+              login == 2? "Shopping Cart":"Login First"
+            }
+            </button>
        }  
       </div>
     </>
