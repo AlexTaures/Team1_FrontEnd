@@ -10,6 +10,7 @@ import DashboardAdmin from './components/DashboardAdmin';
 import ShoppingCart from './components/Shopping-cart/ShoppingCart';
 import AdminIcon from './components/AdminIcon';
 import Menu from './components/Menu'
+import ShoppingPay from './components/Shopping-cart/ShoppingPay';
 
 function App() {
   
@@ -37,6 +38,10 @@ function App() {
           
           <Route exact path="/admin" element={
               <DashboardAdmin/>    
+          }/>
+
+          <Route exact path="/paycart" element={
+              <ShoppingPay />   
           }/>
 
           <Route exact path="/" element={
