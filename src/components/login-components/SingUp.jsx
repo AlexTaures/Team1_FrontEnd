@@ -31,17 +31,42 @@ export default function SingUp() {
       setLogin(0);
     } catch (error) {
       console.log(error);
+      setMessage("Something is wrong with the fields or database conection");
+    }
+  }
+
+  const fetchCustomers = async() => {
+    try {
+      await axios.get(routes['customers'])
+      .then(response => {
+        //i is the index for array into the object fetched
+        const i = response.data.findIndex( (element) => element.user_name === refUserName.current.value);
+        
+        if(i !== -1){
+          setMessage("That username already exist in the database.");
+        }else{
+          CreateAccount();       
+
+        }
+      });
+
+    } catch (error) {
+      console.log(error);
+      setMessage("Something is wrong with the fields or database conection");
     }
   }
 
   const SingUp = (event) => {
     event.preventDefault();
+    ///fetching customers
+    
+
+    ///validating pass
     if(refConfPass.current.value !== refPass.current.value){
       setMessage("The confirmation password doesn't match");
       //console.log(message);
     }else{
-      setMessage("");
-      CreateAccount();
+      fetchCustomers();
     }   
   }
 
