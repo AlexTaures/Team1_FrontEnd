@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/AlexTaures.github.io/Team1_FrontEnd/static/css/main.fda94a49.css",
-    "main.js": "/AlexTaures.github.io/Team1_FrontEnd/static/js/main.3151b014.js",
-    "static/media/amazont.png": "/AlexTaures.github.io/Team1_FrontEnd/static/media/amazont.65be0c229e9c5cb09001.png",
-    "index.html": "/AlexTaures.github.io/Team1_FrontEnd/index.html",
-    "main.fda94a49.css.map": "/AlexTaures.github.io/Team1_FrontEnd/static/css/main.fda94a49.css.map",
-    "main.3151b014.js.map": "/AlexTaures.github.io/Team1_FrontEnd/static/js/main.3151b014.js.map"
+    "main.css": "/Team1_FrontEnd/static/css/main.fda94a49.css",
+    "main.js": "/Team1_FrontEnd/static/js/main.bbdc6d87.js",
+    "static/media/amazont.png": "/Team1_FrontEnd/static/media/amazont.65be0c229e9c5cb09001.png",
+    "index.html": "/Team1_FrontEnd/index.html",
+    "main.fda94a49.css.map": "/Team1_FrontEnd/static/css/main.fda94a49.css.map",
+    "main.bbdc6d87.js.map": "/Team1_FrontEnd/static/js/main.bbdc6d87.js.map"
   },
   "entrypoints": [
     "static/css/main.fda94a49.css",
-    "static/js/main.3151b014.js"
+    "static/js/main.bbdc6d87.js"
   ]
 }
