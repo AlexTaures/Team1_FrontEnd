@@ -18,10 +18,10 @@ import EditProducts from './EditProducts';
 import EditCategory from './EditCategory';
 import EditPresentation from './EditPresentation';
 import EditBrand from './EditBrand';
-
+import ViewSalesDetail from './ViewSalesDetail';
 
 export default function PrincipalContainer() {
-  const { dashOption, currentId, dashProd, dashBrands, dashPres, dashCat } = useContext(DataContext);
+  const { dashOption, currentId, dashProd, dashBrands, dashPres, dashCat, detail } = useContext(DataContext);
 
  if(dashOption === 0){
   return(
@@ -171,6 +171,15 @@ export default function PrincipalContainer() {
       />
     </div>
   ) 
+}else if(dashOption === 17){
+  return(
+    <div className="currentSection">
+    <h2>Detail Sale id = {currentId}</h2>
+    <ViewSalesDetail
+      detail = { detail }
+    />
+  </div>
+  )
 }
 
 

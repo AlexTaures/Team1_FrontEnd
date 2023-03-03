@@ -1,7 +1,5 @@
 import React, { useContext } from 'react';
 import { DataContext } from '../../context/Datacontext';
-import EditProducts from './EditProducts';
-
 
 export default function ViewProducts() {
   const { dashProd, dashBrands, dashPres, dashCat, setDashOption, setCurrentId} = useContext(DataContext);  

@@ -182,15 +182,15 @@ export default function ActiveAccount() {
               <div className="subContainer">
                 <div className="user_info_line">
                   <p className="tag">Current Password</p>
-                  <input type="text" className="info" ref={refCurrPass}/>
+                  <input type="password" className="info" ref={refCurrPass}/>
                 </div>
                 <div className="user_info_line">
                   <p className="tag">New Password</p>
-                  <input type="text" className="info" ref={refNewPass}/>
+                  <input type="password" className="info" ref={refNewPass}/>
                 </div>
                 <div className="user_info_line">
                   <p className="tag">Confirm New Password</p>
-                  <input type="text" className="info" ref={refConfPass}/>
+                  <input type="password" className="info" ref={refConfPass}/>
                 </div>
                 <div className="button_container">
                     <button onClick={savePass}>Save</button>

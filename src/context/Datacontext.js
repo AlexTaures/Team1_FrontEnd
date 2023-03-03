@@ -36,6 +36,7 @@ export const DataProvider =  ( {children} ) => {
         items: [],
         total: 0
       });
+    const [detail, setDetail] = useState(null);
 
       //console.log(data);
     return (
@@ -58,7 +59,8 @@ export const DataProvider =  ( {children} ) => {
             searchText, setSearchText,
             selCat, setSelCat,
             searching, setSearching,
-            cart, setCart
+            cart, setCart,
+            detail, setDetail
         }} >
             { children }
         </DataContext.Provider>

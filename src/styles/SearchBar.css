@@ -44,8 +44,10 @@
 }
 
 .user_address{
-  width: 200px;
+  width: auto;
+  max-width: 300px;
   color: white;
+  scale: 0.9;
 }
 
 .user_address > i{

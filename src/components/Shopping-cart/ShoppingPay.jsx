@@ -18,7 +18,7 @@ export default function ShoppingPay() {
 
   const payCart = async () => {
     cart.items.forEach((e, key)=> {
-      productList.push(`'key': ${key+1},'name': ${e.name},'price': ${Math.floor(e.price).toFixed(2)},'amount': ${e.amount},'total': ${Math.floor(e.amount*e.price).toFixed(2)}`)
+      productList.push(`${key+1},${e.name},${Math.floor(e.price).toFixed(2)},${e.amount},${Math.floor(e.amount*e.price).toFixed(2)}/`)
     });
 
     const date = new Date();

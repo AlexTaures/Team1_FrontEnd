@@ -8,6 +8,7 @@
 }
 .currentSection .mainContainer{
   display: flex;
+  padding: 20px;
   margin: auto;
   width: fit-content;
   background: white;
@@ -93,7 +94,7 @@
   color: white;
   padding: 10px 15px 10px 15px;
   border-radius: 15px;
-  width: 350px;
+  width: 300px;
   box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
   5px 5px 15px rgba(0,0,0,0.35);
 }
@@ -150,6 +151,22 @@
 .currentSection .mainContainer .subContainer .cancel{
   background: rgb(140, 1, 1);
   margin-left: 20px;
+  
+}
+
+.currentSection .generalContainer .subContainer .back{
+  background:rgb(70, 108, 217);
+  color: white;
+  padding: 10px 15px 10px 15px;
+  border: none;
+  border-radius: 25px;
+  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
+  5px 5px 15px rgba(0,0,0,0.35);
+}
+
+.currentSection .generalContainer .subContainer .back:hover{
+  background:lightblue;
+  color:rgb(70, 108, 217) ;
 }
 
 .currentSection .mainContainer .subContainer .cancel:hover{
@@ -157,6 +174,7 @@
   color: rgb(140, 1, 1);
   
 }
+
 
 
 

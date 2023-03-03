@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 export default function SearchBar() {
 //setting variables from DataContext
-const { userAddress, setSearchText, setSelCat, setSearching, searching, login } = useContext(DataContext);
+const { userInfo, setSearchText, setSelCat, setSearching, searching, login } = useContext(DataContext);
 const [cat, setCat] = useState([]);
 const refCat = useRef(null);  //We gonna use id instead category_name
 const refText = useRef(null);
@@ -56,7 +56,7 @@ const searchListener = (event) => {
         {
           login == 2?
           <div className='user_address'>
-          <i className="fa-solid fa-location-dot"></i> {userAddress}</div>
+          <i className="fa-solid fa-location-dot"></i> {userInfo["address"]}</div>
           :<></>
         }
         <div className="search_input">
