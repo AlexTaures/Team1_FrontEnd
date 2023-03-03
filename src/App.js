@@ -9,7 +9,7 @@ import Login from './components/Login';
 import DashboardAdmin from './components/DashboardAdmin';
 import ShoppingCart from './components/Shopping-cart/ShoppingCart';
 import AdminIcon from './components/AdminIcon';
-import Menu from './components/Menu'
+import Menu from './components/Menu.jsx'
 import ShoppingPay from './components/Shopping-cart/ShoppingPay';
 
 function App() {
