@@ -237,3 +237,20 @@
 .generalContainer .subContainer .message{
   color: rgb(142, 7, 7);
 }
+
+/***** FOR PAYCART*********/
+.generalContainer .subContainer .table{
+  border-radius: 15;
+}
+.generalContainer .subContainer table thead tr{
+  background:rgb(70, 108, 217);
+  color: white;
+}
+
+.generalContainer .subContainer table thead tr th{
+  padding: 10px 25px 10px 25px;
+  border-right: white solid 1px;
+}
+.generalContainer .subContainer table tbody tr td{
+  border-bottom: gray solid 1px;
+}
