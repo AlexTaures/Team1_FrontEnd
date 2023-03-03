@@ -17,8 +17,18 @@ export default function AddProducts() {
   const refCatId = useRef(null);
   const { dashProd, dashBrands, dashPres, dashCat, setUpdating, updating } = useContext(DataContext);
   let [message, setMessage] = useState('');
-
+  ////////////setDate////////////
+  const date = new Date();
+    let day = date.getDate();
+    if(day<10){day="0"+day}
+    let month = date.getMonth() + 1;
+    if(month<10){month = "0"+month}
+    let year = date.getFullYear();
+    let currentDate = `${year}-${month}-${day}`;
   
+  
+
+  ////////////BUTTON FUNCTIONS/////////// 
   const CreateProd = async () => {
     try {
       const i = dashProd.findIndex( (element) => element.name === refName.current.value);
@@ -72,20 +82,20 @@ export default function AddProducts() {
               <input type="text" className='line-input' ref={refDesc}/>
           </div>
           <div className="line d-flex">
-              <h5 className='line-name'>Price</h5>
+              <h5 className='line-name'>Price $</h5>
               <input type="text" className='line-input' ref={refPrice}/>
           </div>
           <div className="line d-flex">
-              <h5 className='line-name'>Amount</h5>
-              <input type="text" className='line-input' ref={refAmount}/>
+              <h5 className='line-name'>Stock</h5>
+              <input type="number" min="1" className='line-input' ref={refAmount}/>
           </div>
           <div className="line d-flex">
               <h5 className='line-name'>Admission Date</h5>
-              <input type="date" className='line-input' ref={refAddDate}/>
+              <input type="date" className='line-input' ref={refAddDate} defaultValue={currentDate} disabled/>
           </div>
           <div className="line d-flex">
               <h5 className='line-name'>Expiration Date</h5>
-              <input type="date" className='line-input' ref={refExpDate}/>
+              <input type="date" className='line-input' min={currentDate} ref={refExpDate} defaultValue={currentDate}/>
           </div>
           <div className="line d-flex">
               <h5 className='line-name'>Image URL</h5>

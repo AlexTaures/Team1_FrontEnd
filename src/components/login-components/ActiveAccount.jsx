@@ -98,6 +98,7 @@ export default function ActiveAccount() {
     setLogin(0);
     setUserInfo({});
     setUserName('Log in');
+    sessionStorage.clear();//////clear session storage
   }
 
   const editInfo = (event) => {

@@ -71,12 +71,12 @@ export default function EditProducts(props) {
               <input type="text" className='line-input' ref={refDesc} defaultValue={props.description}/>
           </div>
           <div className="line d-flex">
-              <h5 className='line-name'>Price</h5>
+              <h5 className='line-name'>Price $</h5>
               <input type="text" className='line-input' ref={refPrice} defaultValue={props.price}/>
           </div>
           <div className="line d-flex">
-              <h5 className='line-name'>Amount</h5>
-              <input type="text" className='line-input' ref={refAmount} defaultValue={props.amount}/>
+              <h5 className='line-name'>Stock</h5>
+              <input type="number" className='line-input' ref={refAmount} defaultValue={props.amount}/>
           </div>
           <div className="line d-flex">
               <h5 className='line-name'>Admission Date</h5>

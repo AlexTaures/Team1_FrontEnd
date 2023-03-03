@@ -1,18 +1,79 @@
 
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext } from 'react';
 import { DataContext } from '../context/Datacontext';
-
 import '../styles/Login.css';
-import axios from 'axios';
-import routes from '../connection/BackendRoutes.json';
-
 import SingUp from './login-components/SingUp';
 import SingIn from './login-components/SingIn';
 import ActiveAccount from './login-components/ActiveAccount';
+import axios from 'axios';
+import routes from "../connection/BackendRoutes.json";
 
 export default function Login() {
   //variables
-  const { login } = useContext(DataContext);
+  const { login, setLogin, setUserName, setUserInfo } = useContext(DataContext);
+
+  const fetchCustomers = () => {
+    try {
+      axios.get(routes['customers'])
+      .then(response => {
+        //i is the index for array into the object fetched
+        const i = response.data.findIndex( (element) => element.user_name === sessionStorage.getItem("user_name"));
+        
+        if(i===-1){
+        }else if(response.data[i].password !== sessionStorage.getItem("pass")){
+        }else{
+          setUserName(response.data[i].user_name);
+          setUserInfo({
+            "id": response.data[i].id,
+            "first_name":response.data[i].first_name,
+            "last_name":response.data[i].last_name,
+            "address":response.data[i].address,
+            "email": response.data[i].email,
+            "user_name": response.data[i].user_name,
+            "password": response.data[i].password
+        });
+          setLogin(2);
+          
+        }
+
+
+
+      });
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const fetchUsers = async () => {
+    try {
+      await axios.get(routes['admins'])
+      .then(response => {
+        //i is the index for array into the object fetched
+        const i = response.data.findIndex( (element) => element.user_name === sessionStorage.getItem("user_name"));
+        
+        if(i===-1){
+          //////////////////////
+          fetchCustomers();
+          ///////////////////////
+        }else if(response.data[i].password !== sessionStorage.getItem("pass")){
+          
+        }else{
+          
+          setLogin(3);
+          
+        }
+      });
+      
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  if(sessionStorage.length > 0 && login === 0){
+    fetchUsers();
+  }
   
 
   if(login === 1){

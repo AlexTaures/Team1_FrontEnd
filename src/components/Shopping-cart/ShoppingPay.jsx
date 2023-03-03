@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useContext } from 'react';
 import { DataContext } from '../../context/Datacontext';
 import routes from "../../connection/BackendRoutes.json";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 export default function ShoppingPay() {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ export default function ShoppingPay() {
 
   const payCart = async () => {
     cart.items.forEach(async (e, key)=> {
-      productList.push(`${key+1},${e.name},${Math.floor(e.price).toFixed(2)},${e.amount},${Math.floor(e.amount*e.price).toFixed(2)}/`);
+      productList.push(`${key+1},${e.name},${parseFloat(e.price).toFixed(2)},${e.amount},${parseFloat(e.amount*e.price).toFixed(2)}/`);
       //updating amount
       amountUrl = routes["amount"]+`/${e.id}`
       amountBody = {
@@ -85,9 +85,9 @@ export default function ShoppingPay() {
               <tr key={key}>
                 <td>{key+1}</td>
                 <td>{item.name}</td>
-                <td>${Math.floor(item.price).toFixed(2)}</td>
+                <td>${parseFloat(item.price).toFixed(2)}</td>
                 <td>{item.amount}</td>
-                <td>${Math.floor(item.amount*item.price).toFixed(2)}</td>
+                <td>${parseFloat(item.amount*item.price).toFixed(2)}</td>
               </tr>
             ))
           }

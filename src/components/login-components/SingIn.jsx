@@ -3,13 +3,16 @@ import { DataContext } from '../../context/Datacontext';
 import '../../styles/Login.css';
 import axios from 'axios';
 import routes from '../../connection/BackendRoutes.json';
+import { useNavigate } from 'react-router-dom';
 
 export default function SingIn() {
-  const { login, setLogin, setUserName, setUserInfo } = useContext(DataContext);
+  const { login, setLogin, session, setUserName, setUserInfo } = useContext(DataContext);
+  const navigate = useNavigate();
   const refUserNameLog = useRef(null);
   const refPassLog = useRef(null);
   let [message, setMessage] = useState('');
 
+  
   const fetchCustomers = () => {
     try {
       axios.get(routes['customers'])
@@ -34,6 +37,11 @@ export default function SingIn() {
         });
           setMessage("");
           setLogin(2);
+          /// FOR SESSION STORAGE IN BROWSER
+          sessionStorage.setItem("user_name", response.data[i].user_name);
+          sessionStorage.setItem("pass", response.data[i].password);
+          sessionStorage.setItem("login","2");
+          return(navigate("/shopping"))
         }
 
 
@@ -62,9 +70,16 @@ export default function SingIn() {
           setUserName(response.data[i].user_name);
           setMessage("");
           setLogin(3);
+          
+          /// FOR SESSION STORAGE IN BROWSER
+          sessionStorage.setItem("user_name", response.data[i].user_name);
+          sessionStorage.setItem("pass", response.data[i].password);
+          sessionStorage.setItem("login","3");
           response = true;
+          return(navigate("/admin"));
         }
       });
+      
 
     } catch (error) {
       console.log(error);
@@ -91,19 +106,27 @@ export default function SingIn() {
     }
   }
 
-
   return (
     <div className='log_container'>
         <div className="subLogContainer">
           <div className="form" id="singin">
         <h2>Sing In</h2>
         <div className="inputBox">
-          <input type="text" required="required" ref={refUserNameLog}></input>
+          {
+            sessionStorage.length>0?
+            <input type="text" required="required" ref={refUserNameLog} defaultValue={sessionStorage.getItem("user_name")}></input>
+            :<input type="text" required="required" ref={refUserNameLog}></input>
+          }
           <i className="fa-regular fa-user"></i>
           <span>username</span>
         </div>
         <div className="inputBox">
-          <input type="password" required="required" ref={refPassLog}></input>
+          {
+            sessionStorage.length>0?
+            <input type="password" required="required" ref={refPassLog} defaultValue={sessionStorage.getItem("pass")}></input>
+            :<input type="password" required="required" ref={refPassLog}></input>
+          }
+          
           <i className="fa-solid fa-lock"></i>
           <span>password</span>
         </div>
@@ -116,5 +139,7 @@ export default function SingIn() {
           </div>
         </div>
       </div>
+      
   )
+  
 }

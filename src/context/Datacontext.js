@@ -15,6 +15,7 @@ export const DataProvider =  ( {children} ) => {
     const [categories, setCategories] = useState(categoriesList);
     const [userAddress, setUserAddress] = useState(addressTest);
     const [login, setLogin] = useState(0);
+    const [session, setSession] = useState(0);
     const [userName, setUserName] = useState('Log in');
     const [userInfo, setUserInfo] = useState({});
     const [dashOption, setDashOption] = useState(0);
@@ -44,6 +45,7 @@ export const DataProvider =  ( {children} ) => {
             categories, setCategories,
             userAddress, setUserAddress,
             login, setLogin,
+            session,setSession,
             userName, setUserName,
             userInfo, setUserInfo,
             dashOption, setDashOption,

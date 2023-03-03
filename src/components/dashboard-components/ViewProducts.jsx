@@ -23,6 +23,7 @@ export default function ViewProducts() {
               <th><h5 className='line-name'>price</h5></th>
               <th><h5 className='line-name'>admission_date</h5></th>
               <th><h5 className='line-name'>expiration_date</h5></th>
+              <th><h5 className='line-name'>stock</h5></th>
               <th><h5 className='line-name'>brand</h5></th>
               <th><h5 className='line-name'>presentation</h5></th>
               <th><h5 className='line-name'>category</h5></th>
@@ -35,9 +36,10 @@ export default function ViewProducts() {
               <td>{opt.id}</td>
               <td>{opt.name}</td>
               <td>{opt.description}</td>
-              <td>{opt.price}</td>
+              <td>${parseFloat(opt.price).toFixed(2)}</td>
               <td>{opt.admission_date}</td>
               <td>{opt.expiration_date}</td>
+              <td>{opt.amount}</td>
               <td>{dashBrands[dashBrands.findIndex((element) => element.id === opt.brand_id)].brand_name}</td>
               <td>{dashPres[dashPres.findIndex((element) => element.id === opt.presentation_id)].presentation_type}</td>
               <td>{dashCat[dashCat.findIndex((element) => element.id === opt.category_id)].category_name}</td>

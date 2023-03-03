@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, NavLink} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes, NavLink, Navigate} from 'react-router-dom'
 import SearchBar from './components/SearchBar';
 import { DataProvider } from './context/Datacontext';
 import logo from "./img/amazont.png";
@@ -13,7 +13,6 @@ import Menu from './components/Menu.jsx'
 import ShoppingPay from './components/Shopping-cart/ShoppingPay';
 
 function App() {
-  
   return (
   <DataProvider>
     <Router>
@@ -47,7 +46,7 @@ function App() {
           <Route exact path="/" element={
               <Menu/>
           }/>
-
+          <Route path="*" element={<Navigate to="/" replace={true} />}/>
 
 
       </Routes>

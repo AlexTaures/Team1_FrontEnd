@@ -9,7 +9,7 @@ export default function FetchData() {
 
   const fetchData = async () => {
     let charging = 0;
-    let routesLen = Object.keys(routes).length;
+    let routesLen = Object.keys(routes).length-1;
     setDashOption(0);
     try {
       await axios.get(routes['customers'])

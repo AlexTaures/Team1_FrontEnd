@@ -3,7 +3,8 @@ import React, { useState, useRef, useEffect, useContext } from 'react';
 import "../../styles/shoppincart.css";
 import routes from "../../connection/BackendRoutes.json";
 import { DataContext } from '../../context/Datacontext';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+
 
 export default function ShoppingCart() {
   const refAmount = useRef(null);
@@ -137,100 +138,103 @@ export default function ShoppingCart() {
     showSidebar? setShowSidebar(false):setShowSidebar(true);
   }
 
-  return (
-    <>
-      <div className="cartMainContainer mt-4 text-center">
-        
-        
-        <div className="container d-flex relative">
-        <div className="container-products-available mt-3 text-start">
-          <h2>Products available</h2>
-
-          <div className="productContainer mt-2 container-selected-products">
+  
+      return (
+        sessionStorage.length === 0 && login === 0? <Navigate to="/account" replace={true}/>:
+        <>
+          <div className="cartMainContainer mt-4 text-center">
             
-              {
-                prod?
-                prod.map((opt, key) => 
-                <div className="card" key={key} style={{ width: "15rem" }}>
-                <img src={opt.img_url} className="card-img-top" />
-                <div className="card-body">
-                  <h5 className="card-title">{opt.name}</h5>
-                  <p className="card-text">{opt.description}</p>
-                  <div className="cotainer amount-product aling-middle">
-                    <div className="container-xxl text-start">
-                      <p>Price: {opt.price}</p>
-                    </div>
-                    <div className="container-xxl text-start">
-                      <p>Stock: {opt.amount}</p>
-                    </div>
-                  </div>
-                  <div className="container text-center mt-2">
-                    {
-                      opt.amount>0?
-                      <button className="btn btn-primary" onClick={addProduct} id={opt.id} name={opt.name} price={opt.price} img_url={opt.img_url} stock={opt.amount}>Add to cart</button>:
-                      <button className="btn btn-danger disabled" onClick={addProduct} id={opt.id} name={opt.name} price={opt.price} img_url={opt.img_url}>No stock</button>
-                    }
-                  </div>
-
-              </div></div>):<div>Searching Products</div>
-              }
             
-          </div>
-        </div>
-        
-        </div>
+            <div className="container d-flex relative">
+            <div className="container-products-available mt-3 text-start">
+              <h2>Products available</h2>
 
-        
-       {
-        showSidebar && login == 2?
-        <div className="cartContainer">
-          <button className='closeButton' onClick={toggleSidebar}>Close</button>
-          <button className='payButton'><Link to="/paycart" className='link'>PayCart</Link></button>
-          <div className="totalContainer d-flex text-end">
-            <div className="totalProducts d-flex">Total products: <p>{cart.items.length}</p></div>
-            <div className="totalPay d-flex">Total to pay: <p>${cart.total}</p></div>
-          </div>
-          <div className="container text-start mt-3">
-            <h3 className='text-end'>Selected products</h3>
+              <div className="productContainer mt-2 container-selected-products">
+                
+                  {
+                    prod?
+                    prod.map((opt, key) => 
+                    <div className="card" key={key} style={{ width: "15rem" }}>
+                    <img src={opt.img_url} className="card-img-top" />
+                    <div className="card-body">
+                      <h5 className="card-title">{opt.name}</h5>
+                      <p className="card-text">{opt.description}</p>
+                      <div className="cotainer amount-product aling-middle">
+                        <div className="container-xxl text-start">
+                          <p>Price: ${parseFloat(opt.price).toFixed(2)}</p>
+                        </div>
+                        <div className="container-xxl text-start">
+                          <p>Stock: {opt.amount}</p>
+                        </div>
+                      </div>
+                      <div className="container text-center mt-2">
+                        {
+                          opt.amount>0?
+                          <button className="btn btn-primary" onClick={addProduct} id={opt.id} name={opt.name} price={opt.price} img_url={opt.img_url} stock={opt.amount}>Add to cart</button>:
+                          <button className="btn btn-danger disabled" onClick={addProduct} id={opt.id} name={opt.name} price={opt.price} img_url={opt.img_url}>No stock</button>
+                        }
+                      </div>
 
-            <div className="scroll-bg">
-              <div className="scroll-div">
-                <div className="scroll-object">
-                <div className="container mt-2 container-selected-products" id="selectedProducts">
-                {cart.items.map((item, index) => (
-                    <div className="card" style={{ width: "15rem" }} key={index}>
-                      <div className="card-body">
-                        
-                        <img src={item.img_url} alt='image not found' className="card-img-top" />
-                        <h5 className="card-title ml-3 text-start">{item.name}</h5>
-                        <p className="card-text">{item.description}.</p>
-                        <div className="cotainer amount-product aling-middle">
-                          <div className="container-xxl text-start">
-                            <p>Amount: <input className="col-xl-4" type="number" min="1" max={item.stock} defaultValue={item.amount} onChange={(event) => updateItemQuantity(index, event.target.value)} ref={refAmount} /></p>
-                            <p>Price: ${item.price}</p>
+                  </div></div>):<div>Searching Products</div>
+                  }
+                
+              </div>
+            </div>
+            
+            </div>
+
+            
+          {
+            showSidebar && login == 2?
+            <div className="cartContainer">
+              <button className='closeButton' onClick={toggleSidebar}>Close</button>
+              <button className='payButton'><Link to="/paycart" className='link'>PayCart</Link></button>
+              <div className="totalContainer d-flex text-end">
+                <div className="totalProducts d-flex">Total products: <p>{cart.items.length}</p></div>
+                <div className="totalPay d-flex">Total to pay: <p>${(cart.total).toFixed(2)}</p></div>
+              </div>
+              <div className="container text-start mt-3">
+                <h3 className='text-end'>Selected products</h3>
+
+                <div className="scroll-bg">
+                  <div className="scroll-div">
+                    <div className="scroll-object">
+                    <div className="container mt-2 container-selected-products" id="selectedProducts">
+                    {cart.items.map((item, index) => (
+                        <div className="card" style={{ width: "15rem" }} key={index}>
+                          <div className="card-body">
+                            
+                            <img src={item.img_url} alt='image not found' className="card-img-top" />
+                            <h5 className="card-title ml-3 text-start">{item.name}</h5>
+                            <p className="card-text">{item.description}.</p>
+                            <div className="cotainer amount-product aling-middle">
+                              <div className="container-xxl text-start">
+                                <p>Amount: <input className="col-xl-4" type="number" min="1" max={item.stock} defaultValue={item.amount} onChange={(event) => updateItemQuantity(index, event.target.value)} ref={refAmount} /></p>
+                                <p>Price: ${parseFloat(item.price).toFixed(2)}</p>
+                              </div>
+                            </div>
+                            <div className="container text-center mt-2">
+                              <button href="#" className="btn btn-primary" onClick={() => removeItemFromCart(index)}>Remove to cart</button>
+                            </div>
+
                           </div>
                         </div>
-                        <div className="container text-center mt-2">
-                          <button href="#" className="btn btn-primary" onClick={() => removeItemFromCart(index)}>Remove to cart</button>
-                        </div>
-
-                      </div>
+                    ))}
                     </div>
-                ))}
-                </div>
-                </div>
+                    </div>
+                  </div>
+                  </div>
               </div>
-              </div>
+              
+              </div>:<button className='toggleButton' onClick={toggleSidebar}>
+                {
+                  login== 0? "Login First":
+                  login == 2? "Shopping Cart":"Admin View"
+                }
+                </button>
+          }  
           </div>
-          
-          </div>:<button className='toggleButton' onClick={toggleSidebar}>
-            {
-              login== 0? "Login First":
-              login == 2? "Shopping Cart":"Admin View"
-            }
-            </button>
-       }  
-      </div>
-    </>
-  )
+        </>
+      )
+      
 }

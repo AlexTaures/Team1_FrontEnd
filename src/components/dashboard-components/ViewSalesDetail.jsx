@@ -55,9 +55,9 @@ export default function ViewSalesDetail(props) {
               <tr key={index}>
                 <td>{opt.key}</td>
                 <td>{opt.name}</td>
-                <td>{opt.price}</td>
+                <td>${opt.price}</td>
                 <td>{opt.amount}</td>
-                <td>{opt.total}</td>
+                <td>${opt.total}</td>
               </tr>
             ))
           }
