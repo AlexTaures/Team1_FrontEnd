@@ -1,5 +1,6 @@
 {
   "name": "frontend",
+  "homepage": "https://{Github Username}.github.io/{NombreRepo}",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
