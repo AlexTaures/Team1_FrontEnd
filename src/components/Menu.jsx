@@ -56,7 +56,7 @@ export default function Menu(){
         }else if(response.data[i].password !== sessionStorage.getItem("pass")){
           
         }else{
-          
+          setUserName(response.data[i].user_name);
           setLogin(3);
           
         }
