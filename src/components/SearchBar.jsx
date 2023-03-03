@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { axios } from 'axios';
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { DataContext } from '../context/Datacontext';
 import "../styles/SearchBar.css";
