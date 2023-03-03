@@ -123,10 +123,12 @@ export default function ShoppingCart() {
 
   function addProduct(event) {
 
-    addItemToCart({ 
+    addItemToCart({
+      id: event.target.getAttribute('id'),
       name: event.target.getAttribute('name'), 
       price: event.target.getAttribute('price'), 
       img_url: event.target.getAttribute('img_url'),
+      stock: event.target.getAttribute('stock'),
       amount: 1 });
   }
   /////////////////////////////
@@ -158,19 +160,22 @@ export default function ShoppingCart() {
                     <div className="container-xxl text-start">
                       <p>Price: {opt.price}</p>
                     </div>
+                    <div className="container-xxl text-start">
+                      <p>Stock: {opt.amount}</p>
+                    </div>
                   </div>
                   <div className="container text-center mt-2">
-                    <button href="#" className="btn btn-primary" onClick={addProduct} name={opt.name} price={opt.price} img_url={opt.img_url}>Add to cart</button>
+                    {
+                      opt.amount>0?
+                      <button className="btn btn-primary" onClick={addProduct} id={opt.id} name={opt.name} price={opt.price} img_url={opt.img_url} stock={opt.amount}>Add to cart</button>:
+                      <button className="btn btn-danger disabled" onClick={addProduct} id={opt.id} name={opt.name} price={opt.price} img_url={opt.img_url}>No stock</button>
+                    }
                   </div>
 
               </div></div>):<div>Searching Products</div>
               }
             
           </div>
-        </div>
-        
-        <div className="sidebar d-flex">
-        
         </div>
         
         </div>
@@ -201,7 +206,7 @@ export default function ShoppingCart() {
                         <p className="card-text">{item.description}.</p>
                         <div className="cotainer amount-product aling-middle">
                           <div className="container-xxl text-start">
-                            <p>Amount: <input className="col-xl-4" type="number" min="1" defaultValue={item.amount} onChange={(event) => updateItemQuantity(index, event.target.value)} ref={refAmount} /></p>
+                            <p>Amount: <input className="col-xl-4" type="number" min="1" max={item.stock} defaultValue={item.amount} onChange={(event) => updateItemQuantity(index, event.target.value)} ref={refAmount} /></p>
                             <p>Price: ${item.price}</p>
                           </div>
                         </div>

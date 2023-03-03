@@ -9,6 +9,8 @@ export default function ShoppingPay() {
   const { cart, setCart, userInfo } = useContext(DataContext);
   let productList = [];
   let total = 0;
+  let amountUrl = "";
+  let amountBody = {}
 
   if(cart.items.length>0){
     cart.items.forEach(element => {
@@ -17,8 +19,19 @@ export default function ShoppingPay() {
   }
 
   const payCart = async () => {
-    cart.items.forEach((e, key)=> {
-      productList.push(`${key+1},${e.name},${Math.floor(e.price).toFixed(2)},${e.amount},${Math.floor(e.amount*e.price).toFixed(2)}/`)
+    cart.items.forEach(async (e, key)=> {
+      productList.push(`${key+1},${e.name},${Math.floor(e.price).toFixed(2)},${e.amount},${Math.floor(e.amount*e.price).toFixed(2)}/`);
+      //updating amount
+      amountUrl = routes["amount"]+`/${e.id}`
+      amountBody = {
+        "amount": Math.floor(e.amount)
+      }
+      try {        
+       await axios.put(amountUrl, amountBody);
+      } catch (error) {
+        console.log(error)
+      }
+
     });
 
     const date = new Date();
@@ -46,10 +59,17 @@ export default function ShoppingPay() {
     }
   }
 
+  /********return to cart */
+  const returnCart = (event) => {
+    event.preventDefault();
+    return (navigate("/shopping"));
+  }
   return (
     <div className="generalContainer">
       <div className="subContainer">
-      <table>
+      {
+        cart.items.length>0?
+        <table>
         <thead>
           <tr>
             <th>No.</th>
@@ -74,7 +94,14 @@ export default function ShoppingPay() {
           <td>Total</td> <td></td> <td></td> <td></td> <td>${total.toFixed(2)}</td>
         </tbody>
       </table>
-      <button className='payButton px-3' onClick={payCart}>Pay Cart</button>
+
+      :<h3>Need to add products to cart</h3>
+      }
+      {
+        cart.items.length>0?
+        <button className='payButton px-3' onClick={payCart}>Pay Cart</button>:<></>
+      }
+        <button className="payButton ml-3 px-3" onClick={returnCart}>Return to Cart</button>
       </div>      
     </div>
   )
