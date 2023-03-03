@@ -195,8 +195,9 @@ export default function ShoppingCart() {
                 {cart.items.map((item, index) => (
                     <div className="card" style={{ width: "15rem" }} key={index}>
                       <div className="card-body">
-                        <h5 className="card-title">{item.name}</h5>
+                        
                         <img src={item.img_url} alt='image not found' className="card-img-top" />
+                        <h5 className="card-title ml-3 text-start">{item.name}</h5>
                         <p className="card-text">{item.description}.</p>
                         <div className="cotainer amount-product aling-middle">
                           <div className="container-xxl text-start">

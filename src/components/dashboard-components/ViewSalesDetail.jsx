@@ -3,6 +3,7 @@ import { DataContext } from '../../context/Datacontext';
 
 export default function ViewSalesDetail(props) {
   const { setDashOption } = useContext(DataContext);
+  
 
   let firstSplit = [];
   let secondSplit = [];
@@ -13,15 +14,19 @@ export default function ViewSalesDetail(props) {
   });
   //console.log(firstSplit);
   firstSplit.pop();
-  firstSplit.forEach(e=> {
+  firstSplit.forEach((e, key)=> {
     secondSplit = e.split(",");
-    list = [{
+    if(key>0){
+      secondSplit.shift();
+    }
+    
+    list.push({
       "key": secondSplit[0],
       "name": secondSplit[1],
       "price": secondSplit[2],
       "amount": secondSplit[3],
       "total": secondSplit[4]
-    }]
+    })
     total += Math.floor(secondSplit[4]);
   });
 
@@ -59,7 +64,7 @@ export default function ViewSalesDetail(props) {
           <td>Total</td> <td></td> <td></td> <td></td> <td>${total.toFixed(2)}</td>
         </tbody>
       </table>
-      <button className='back' onClick={comeBack}>Cancel</button>
+      <button className='back' onClick={comeBack}>Back</button>
       </div>      
     </div>
   )
