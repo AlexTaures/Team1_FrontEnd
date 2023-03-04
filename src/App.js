@@ -13,6 +13,7 @@ import Menu from './components/Menu.jsx'
 import ShoppingPay from './components/Shopping-cart/ShoppingPay';
 
 function App() {
+  
   return (
   <DataProvider>
     <Router>
