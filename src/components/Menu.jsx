@@ -1,6 +1,6 @@
 import '../styles/customization.css';
 import logo from "../img/amazont.png"
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { DataContext } from '../context/Datacontext';
 import { Navigate } from 'react-router-dom';
 import axios from 'axios';
@@ -128,6 +128,13 @@ export default function Menu(){
     }
   }
 
+
+  const [popover, setPopover] = useState(true);
+
+  const showNote = () => {
+    popover === true? setPopover(false):setPopover(true)
+  }
+
   ///////// end testing
 
   if(sessionStorage.length > 0 && login === 0){
@@ -141,20 +148,29 @@ export default function Menu(){
           <h2>Program based on what has been learned from React, Laravel, MySQL, Boostrap, CSS, HTML.</h2>
           <p>The Functionality is to Manage, Add, Delete and Edit databases about
           an inventory of product store.</p>
+          {
+            popover === false?
+            <div className="note">
+              <p>This is a limited project version, if you want to use the backend you need to clone both repositories.</p>
+              <button className="clickme" onClick={showNote}>Close</button>
+            </div>
+            :<button className="clickme" onClick={showNote}>Click me</button>
+          }
+          
         </div>
       </div>
       <div>
           <div className='homeTittle'>
             <h2 className="Title">Available in     <i className="fa-brands fa-github"></i></h2>
-            <a href="https://github.com/AlexTaures/Team1_FrontEnd" target={'_blank'} class="btn btn-primary mx-2">FrontEnd</a>
-            <a href="https://github.com/AlexTaures/team1-finalProject" target={'_blank'} class="btn btn-primary mx-2">BackEnd</a>
+            <a href="https://github.com/AlexTaures/Team1_FrontEnd" target={'_blank'} class="btn btn-dark mx-2">FrontEnd</a>
+            <a href="https://github.com/AlexTaures/team1-finalProject" target={'_blank'} class="btn btn-dark mx-2">BackEnd</a>
           </div>
       <div className='integrants'>
             <h2 className="INT">Integrants</h2>
-            <div className="int-line"><p>William Mendrano</p><a href="https://github.com/WamBear" target={'_blank'} class="btn btn-primary my-2">github</a></div>
-            <div className="int-line "><p>Calvin Mena</p><a href="https://github.com/JonathanMena" target={'_blank'} class="btn btn-primary my-2">github</a></div>
-            <div className="int-line"><p>Alexander Díaz</p><a href="https://github.com/AlexTaures" target={'_blank'} class="btn btn-primary my-2">github</a></div>
-            <div className="int-line"><p>Brayan López</p><a href="https://github.com/Brayan01LR" target={'_blank'} class="btn btn-primary my-2">github</a></div>
+            <div className="int-line"><p>Alexander Díaz - FrontEnd</p><a href="https://github.com/AlexTaures" target={'_blank'} class="btn btn-dark my-2">github</a></div>
+            <div className="int-line "><p>Calvin Mena - FrontEnd</p><a href="https://github.com/JonathanMena" target={'_blank'} class="btn btn-dark my-2">github</a></div>
+            <div className="int-line"><p>William Mendrano - BackEnd</p><a href="https://github.com/WamBear" target={'_blank'} class="btn btn-dark my-2">github</a></div>
+            <div className="int-line"><p>Brayan López - BackEnd</p><a href="https://github.com/Brayan01LR" target={'_blank'} class="btn btn-dark my-2">github</a></div>
           </div>
         </div>
       
