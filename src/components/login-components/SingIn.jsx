@@ -182,11 +182,28 @@ export default function SingIn() {
     }
   }
 
+  ////for testing login popover
+  const [note, setNote] = useState(false);
+  
+
+  const showNote = () => {
+    note === true?setNote(false):setNote(true)
+  }
+
   return (
-    <div className='log_container'>
+    <div className='log_container' onClick={()=>{note?setNote(false):<></>}}>
         <div className="subLogContainer">
           <div className="form" id="singin">
-        <h2>Sing In</h2>
+        <h2>Sing In <button className='alert' onClick={showNote}>?</button>
+          {
+            note?
+            <div className="loginNote">
+            <p><strong>Admin Account:</strong><br></br> username: admin1, password: 1234</p>
+            <p><strong>Customer Account:</strong><br></br> username: userA, password: 12345</p>
+          </div>:
+          <></>
+          }
+        </h2>
         <div className="inputBox">
           {
             sessionStorage.length>0?

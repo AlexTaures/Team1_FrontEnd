@@ -12,6 +12,7 @@
   justify-content: center;
   align-items: center;
   align-content: center;
+  z-index: 80;
 }
 .subLogContainer{
   padding: 40px;
@@ -253,4 +254,51 @@
 }
 .generalContainer .subContainer table tbody tr td{
   border-bottom: gray solid 1px;
+}
+
+/********for testing*/
+.form h2 .alert{
+  background:rgb(70, 108, 217);
+  border-radius: 50%;
+  color: white;
+  scale: 0.5;
+  z-index: 90;
+}
+
+.form h2{
+  position: relative;
+}
+
+.form h2 .loginNote{
+  position: absolute;
+  width: 300px;
+  font-size: 0.5em;
+  top: -100%;
+  left: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  border-radius: 15px;
+  animation-name: noteanimation;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes noteanimation {
+  from {
+    transform: rotate(0deg) scale(0) skew(0deg) ;
+  }
+  to {
+    transform: rotate(0deg) scale(1) skew(0deg);
+  }
+}
+
+.form h2 .loginNote p{
+  text-align: left;
+  color: rgb(82, 243, 208);
+}
+
+.form h2 .loginNote p strong{
+  color: white;
 }
