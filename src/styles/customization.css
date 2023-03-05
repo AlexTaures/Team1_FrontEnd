@@ -41,6 +41,15 @@
 	}
 }
 
+.homeContainer div img{
+	width: auto;
+}
+@media screen and (max-width: 744px) {
+	.homeContainer div img{
+		width: 300px;
+	}
+}
+
 .homeContainer .homeDescription{
   font-size: 1.8em;
 }
