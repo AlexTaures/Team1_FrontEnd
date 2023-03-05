@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "first_name": "Alex",
+    "last_name": "Diaz",
+    "email": "alex@gmail.com",
+    "address": "casa",
+    "user_name": "usuario",
+    "password": "contrasenia"
+  }
+]
