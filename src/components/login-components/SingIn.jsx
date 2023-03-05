@@ -3,6 +3,8 @@ import { DataContext } from '../../context/Datacontext';
 import '../../styles/Login.css';
 import  axios  from 'axios';
 import routes from '../../connection/BackendRoutes.json';
+import customersTest from "../../connection/testing/customers.json";
+import adminTest from "../../connection/testing/admins.json";
 import { useNavigate } from 'react-router-dom';
 
 export default function SingIn() {
@@ -13,7 +15,7 @@ export default function SingIn() {
   let [message, setMessage] = useState('');
 
   
-  const fetchCustomers = () => {
+  /*const fetchCustomers = () => {
     try {
       axios.get(routes['customers'])
       .then(response => {
@@ -84,9 +86,83 @@ export default function SingIn() {
     } catch (error) {
       console.log(error);
     }
+  }*/
+
+  //////ONLY FOR TESTING........./////////
+  const fetchCustomers = () => {
+    try {
+      var response = new Array();
+      response["data"] = customersTest;
+      
+        //i is the index for array into the object fetched
+        const i = response.data.findIndex( (element) => element.user_name === refUserNameLog.current.value);
+        
+        if(i===-1){
+          setMessage("That username doesn't existe in the database");
+        }else if(response.data[i].password !== refPassLog.current.value){
+          setMessage("The password for this username is incorrect");
+        }else{
+          setUserName(response.data[i].user_name);
+          setUserInfo({
+            "id": response.data[i].id,
+            "first_name":response.data[i].first_name,
+            "last_name":response.data[i].last_name,
+            "address":response.data[i].address,
+            "email": response.data[i].email,
+            "user_name": response.data[i].user_name,
+            "password": response.data[i].password
+        });
+          setMessage("");
+          setLogin(2);
+          /// FOR SESSION STORAGE IN BROWSER
+          sessionStorage.setItem("user_name", response.data[i].user_name);
+          sessionStorage.setItem("pass", response.data[i].password);
+          sessionStorage.setItem("login","2");
+          return(navigate("/shopping"))
+        }
+
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  
+
+
+
+  const fetchUsers = async () => {
+    try {
+      var response = new Array();
+      response["data"] = adminTest
+      
+        //i is the index for array into the object fetched
+        const i = response.data.findIndex( (element) => element.user_name === refUserNameLog.current.value);
+        
+        if(i===-1){
+          //////////////////////
+          fetchCustomers();
+          ///////////////////////
+        }else if(response.data[i].password !== refPassLog.current.value){
+          setMessage("The password for this username is incorrect");
+        }else{
+          setUserName(response.data[i].user_name);
+          setMessage("");
+          setLogin(3);
+          
+          /// FOR SESSION STORAGE IN BROWSER
+          sessionStorage.setItem("user_name", response.data[i].user_name);
+          sessionStorage.setItem("pass", response.data[i].password);
+          sessionStorage.setItem("login","3");
+          response = true;
+          return(navigate("/admin"));
+        }
+      
+      
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  ///////////////////END TESTING SECTION//////////////////////
 
 
   const SingIn = async (event) => { //We can use async in every function to call another one

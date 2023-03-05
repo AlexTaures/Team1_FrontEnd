@@ -3,7 +3,9 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import { DataContext } from '../context/Datacontext';
 import "../styles/SearchBar.css";
 import routes from "../connection/BackendRoutes.json";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+/////import testing
+import categories from '../connection/testing/categories.json';
 
 export default function SearchBar() {
 //setting variables from DataContext
@@ -14,7 +16,7 @@ const refText = useRef(null);
 
 
 
-const setCategories = async () =>{
+/*const setCategories = async () =>{
   try {
     await axios.get(routes['categories'])
     .then(response => {
@@ -24,9 +26,22 @@ const setCategories = async () =>{
   } catch (error) {
     console.log(error);
   }
+}*/
+
+/////for testing
+const setCategories = async () =>{
+  try {
+      var response = new Array();
+      response["data"] = categories;
+      setCat(response.data);
+    
+  
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-
+/////end testing
 
 useEffect(() => {
   async function setData(){

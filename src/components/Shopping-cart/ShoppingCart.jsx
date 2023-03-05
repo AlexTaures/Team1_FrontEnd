@@ -4,6 +4,8 @@ import "../../styles/shoppincart.css";
 import routes from "../../connection/BackendRoutes.json";
 import { DataContext } from '../../context/Datacontext';
 import { Link, Navigate } from 'react-router-dom';
+//for testing
+import products from '../../connection/testing/products.json';
 
 
 export default function ShoppingCart() {
@@ -17,7 +19,7 @@ export default function ShoppingCart() {
   //////////////////////////////////////////
   //Data fetching
 
-  const setProducts = async () =>{
+  /*const setProducts = async () =>{
 
     try {
       await axios.get(routes['products'])
@@ -47,7 +49,39 @@ export default function ShoppingCart() {
     } catch (error) {
       console.log(error);
     }
+  }*/
+
+  //////for testing
+  const setProducts = async () =>{
+
+    try {
+        var response = new Array();
+        response["data"] = products;
+
+
+        //Filtering the data
+        //filtering category
+        if(selCat === 'All'){
+          filterCat = response.data;
+        }else{
+          filterCat = response.data.filter(items => items.category_id == selCat);
+        }
+        //filtering text
+        if(searchText ===  null || searchText === ""){
+          filterText = filterCat;
+        }else{
+          filterText = filterCat.filter(items => (items.name.toLowerCase()).includes(searchText.toLowerCase()));
+        }
+
+        setProd(filterText);
+
+    
+    } catch (error) {
+      console.log(error);
+    }
   }
+
+  //////end testing
 
   useEffect(() => {
     async function setData(){

@@ -2,6 +2,14 @@ import React, { useContext, useEffect } from 'react';
 import axios from 'axios';
 import { DataContext } from '../../context/Datacontext';
 import routes from '../../connection/BackendRoutes.json';
+/////testing import
+import customers from '../../connection/testing/customers.json';
+import brands from '../../connection/testing/brands.json';
+import admins from '../../connection/testing/admins.json';
+import categories from '../../connection/testing/categories.json';
+import presentations from '../../connection/testing/presentations.json';
+import products from '../../connection/testing/products.json';
+import sales from '../../connection/testing/sales.json';
 
 export default function FetchData() {
 
@@ -11,6 +19,18 @@ export default function FetchData() {
     let charging = 0;
     let routesLen = Object.keys(routes).length-1;
     setDashOption(0);
+
+    ////for testing
+    setDashCustomers(customers);
+    setDashBrands(brands);
+    setDashAdmin(admins);
+    setDashCat(categories);
+    setDashPres(presentations);
+    setDashPro(products);
+    setDashSales(sales);
+    setDashOption(1);
+    /////end testing
+    /*
     try {
       await axios.get(routes['customers'])
       .then(response => {
@@ -91,8 +111,8 @@ export default function FetchData() {
     if(charging === routesLen){
       setDashOption(1);
     }
+  */
   }
-
 
 
   useEffect(() => {
