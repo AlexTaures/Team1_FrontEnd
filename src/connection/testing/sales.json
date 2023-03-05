@@ -1,0 +1,128 @@
+[
+  {
+      "id": 1,
+      "products": "1,Rinso,25.00,1,25.00/",
+      "sale_date": "2023-03-02",
+      "total_sale": 25,
+      "customer_id": 1,
+      "created_at": "2023-03-03T03:19:40.000000Z",
+      "updated_at": "2023-03-03T03:19:40.000000Z"
+  },
+  {
+      "id": 2,
+      "products": "1,Rinso,25.00,1,25.00/,2,MagiaBlanca,25.00,3,75.00/",
+      "sale_date": "2023-03-02",
+      "total_sale": 100,
+      "customer_id": 1,
+      "created_at": "2023-03-03T03:36:55.000000Z",
+      "updated_at": "2023-03-03T03:36:55.000000Z"
+  },
+  {
+      "id": 3,
+      "products": "1,Rinso,25.00,2,50.00/",
+      "sale_date": "2023-03-03",
+      "total_sale": 50,
+      "customer_id": 1,
+      "created_at": "2023-03-03T14:15:05.000000Z",
+      "updated_at": "2023-03-03T14:15:05.000000Z"
+  },
+  {
+      "id": 4,
+      "products": "1,Rinso,25.00,9,225.00/,2,MagiaBlanca,25.00,10,250.00/",
+      "sale_date": "2023-03-03",
+      "total_sale": 475,
+      "customer_id": 1,
+      "created_at": "2023-03-03T14:15:36.000000Z",
+      "updated_at": "2023-03-03T14:15:36.000000Z"
+  },
+  {
+      "id": 5,
+      "products": "1,Rinso,25.00,11,275.00/",
+      "sale_date": "2023-03-03",
+      "total_sale": 275,
+      "customer_id": 1,
+      "created_at": "2023-03-03T14:15:55.000000Z",
+      "updated_at": "2023-03-03T14:15:55.000000Z"
+  },
+  {
+      "id": 6,
+      "products": "1,MagiaBlanca,25.00,6,150.00/",
+      "sale_date": "2023-03-03",
+      "total_sale": 150,
+      "customer_id": 1,
+      "created_at": "2023-03-03T14:18:42.000000Z",
+      "updated_at": "2023-03-03T14:18:42.000000Z"
+  },
+  {
+      "id": 7,
+      "products": "1,Rinso,25.00,1,25.00/",
+      "sale_date": "2023-03-03",
+      "total_sale": 25,
+      "customer_id": 1,
+      "created_at": "2023-03-03T15:17:35.000000Z",
+      "updated_at": "2023-03-03T15:17:35.000000Z"
+  },
+  {
+      "id": 8,
+      "products": "1,Rinso,25.00,1,25.00/,2,Sponge,0.00,7,1.00/",
+      "sale_date": "2023-03-03",
+      "total_sale": 26.75,
+      "customer_id": 1,
+      "created_at": "2023-03-03T15:49:27.000000Z",
+      "updated_at": "2023-03-03T15:49:27.000000Z"
+  },
+  {
+      "id": 9,
+      "products": "1,Rinso,25.00,1,25.00/,2,Sponge,0.25,1,0.25/",
+      "sale_date": "2023-03-03",
+      "total_sale": 25.25,
+      "customer_id": 1,
+      "created_at": "2023-03-03T15:51:37.000000Z",
+      "updated_at": "2023-03-03T15:51:37.000000Z"
+  },
+  {
+      "id": 10,
+      "products": "1,MagiaBlanca,0.35,40,14.00/,2,Sponge,0.25,15,3.75/",
+      "sale_date": "2023-03-03",
+      "total_sale": 17.75,
+      "customer_id": 1,
+      "created_at": "2023-03-03T16:05:49.000000Z",
+      "updated_at": "2023-03-03T16:05:49.000000Z"
+  },
+  {
+      "id": 11,
+      "products": "1,Rinso,1.00,1,1.00/,2,Sponge,0.25,1,0.25/",
+      "sale_date": "2023-03-03",
+      "total_sale": 1.25,
+      "customer_id": 5,
+      "created_at": "2023-03-03T18:41:56.000000Z",
+      "updated_at": "2023-03-03T18:41:56.000000Z"
+  },
+  {
+      "id": 12,
+      "products": "1,Rinso,1.00,4,4.00/,2,Sponge,0.25,4,1.00/",
+      "sale_date": "2023-03-03",
+      "total_sale": 5,
+      "customer_id": 1,
+      "created_at": "2023-03-03T19:03:31.000000Z",
+      "updated_at": "2023-03-03T19:03:31.000000Z"
+  },
+  {
+      "id": 13,
+      "products": "1,Rinso,1.00,2,2.00/,2,Sponge,0.25,14,3.50/",
+      "sale_date": "2023-03-03",
+      "total_sale": 5.5,
+      "customer_id": 1,
+      "created_at": "2023-03-03T20:20:13.000000Z",
+      "updated_at": "2023-03-03T20:20:13.000000Z"
+  },
+  {
+      "id": 14,
+      "products": "1,Javon,0.75,4,3.00/,2,Sponge,0.25,1,0.25/",
+      "sale_date": "2023-03-03",
+      "total_sale": 3.25,
+      "customer_id": 1,
+      "created_at": "2023-03-03T21:24:24.000000Z",
+      "updated_at": "2023-03-03T21:24:24.000000Z"
+  }
+]

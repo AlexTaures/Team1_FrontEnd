@@ -1,0 +1,62 @@
+[
+  {
+      "id": 1,
+      "name": "Rinso",
+      "description": "Detergent",
+      "amount": 10,
+      "price": 1,
+      "admission_date": "2023-03-01",
+      "expiration_date": "2023-03-16",
+      "img_url": "https://walmartsv.vtexassets.com/arquivos/ids/165864/Detergente-Rinso-En-Polvo-Hortensias-1500gr-2-1400.jpg?v=637641627206100000",
+      "brand_id": 1,
+      "presentation_id": 1,
+      "category_id": 1,
+      "created_at": "2023-03-03T03:17:52.000000Z",
+      "updated_at": "2023-03-03T20:20:12.000000Z"
+  },
+  {
+      "id": 2,
+      "name": "MagiaBlanca",
+      "description": "Lejia",
+      "amount": 0,
+      "price": 0.35,
+      "admission_date": "2023-03-13",
+      "expiration_date": "2023-03-24",
+      "img_url": "https://magiablanca.com/wp-content/uploads/2022/10/Magia-Blanca-1galon-Regular.png",
+      "brand_id": 1,
+      "presentation_id": 1,
+      "category_id": 1,
+      "created_at": "2023-03-03T03:30:26.000000Z",
+      "updated_at": "2023-03-03T16:05:48.000000Z"
+  },
+  {
+      "id": 3,
+      "name": "Sponge",
+      "description": "Kitchen Sponge",
+      "amount": 7,
+      "price": 0.25,
+      "admission_date": "2023-03-03",
+      "expiration_date": "2024-10-09",
+      "img_url": "https://png.pngtree.com/png-vector/20210321/ourlarge/pngtree-sponge-cleansing-png-image_3099414.jpg",
+      "brand_id": 2,
+      "presentation_id": 2,
+      "category_id": 2,
+      "created_at": "2023-03-03T15:35:44.000000Z",
+      "updated_at": "2023-03-03T21:24:24.000000Z"
+  },
+  {
+      "id": 4,
+      "name": "Javon",
+      "description": "Es un javon",
+      "amount": 6,
+      "price": 0.75,
+      "admission_date": "2023-03-03",
+      "expiration_date": "2023-03-03",
+      "img_url": "https://cdn.shopify.com/s/files/1/0566/4391/1854/products/7500435120852.png?v=1626774343",
+      "brand_id": 3,
+      "presentation_id": 3,
+      "category_id": 3,
+      "created_at": "2023-03-03T20:23:54.000000Z",
+      "updated_at": "2023-03-03T21:24:23.000000Z"
+  }
+]

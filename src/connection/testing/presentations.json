@@ -1,14 +1,20 @@
 [
   {
-    "id": 1,
-    "presentation_type": "Bottle"
+      "id": 1,
+      "presentation_type": "Bag",
+      "created_at": "2023-03-03T03:15:46.000000Z",
+      "updated_at": "2023-03-03T03:15:46.000000Z"
   },
   {
-    "id": 2,
-    "presentation_type": "Box"
+      "id": 2,
+      "presentation_type": "Box",
+      "created_at": "2023-03-03T15:34:30.000000Z",
+      "updated_at": "2023-03-03T15:34:30.000000Z"
   },
   {
-    "id": 3,
-    "presentation_type": "Six-Pack "
+      "id": 3,
+      "presentation_type": "Bolsa",
+      "created_at": "2023-03-03T20:22:28.000000Z",
+      "updated_at": "2023-03-03T20:22:28.000000Z"
   }
 ]
