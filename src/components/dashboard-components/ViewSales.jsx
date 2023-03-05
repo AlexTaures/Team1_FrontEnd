@@ -28,7 +28,7 @@ export default function ViewSales() {
             dashSales.map((opt, index)=><tr key={index}>
                 <td>{opt.id}</td>
                 <td>{opt.sale_date}</td>
-                <td>{opt.total_sale}</td>
+                <td>${parseFloat(opt.total_sale).toFixed(2)}</td>
                 <td>{opt.customer_id}</td>
                 <td><button className='edit' detail={opt.products} id={opt.id} onClick={viewDetail}>Details</button></td>
                 </tr>)
