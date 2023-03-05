@@ -1,0 +1,83 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "first_name": "User Firsname",
+      "last_name": "User Lastname",
+      "email": "user@email.com",
+      "address": "home address",
+      "user_name": "username",
+      "password": "1234"
+    }
+  ],
+
+
+
+
+
+
+
+
+  "sales":{},
+
+
+
+
+
+  "brands": {},
+
+
+
+
+
+
+
+  "presentations": {},
+
+
+
+
+
+
+
+
+  "products": {},
+
+
+
+
+
+
+  "admins" : [{
+    "id": 1,
+    "user_name": "admin",
+    "password": "1234",
+    "created_at": "2023-03-03T03:14:38.000000Z",
+    "updated_at": "2023-03-03T03:14:38.000000Z"
+},{
+    "id": 2,
+    "user_name": "admin",
+    "password": "1234",
+    "created_at": "2023-03-03T03:14:38.000000Z",
+    "updated_at": "2023-03-03T03:14:38.000000Z"
+}],
+
+
+
+
+
+
+
+
+
+  "categories" : {}
+
+
+
+
+
+
+
+
+
+}
